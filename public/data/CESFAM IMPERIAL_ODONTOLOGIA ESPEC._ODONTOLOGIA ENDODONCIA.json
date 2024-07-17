@@ -1,0 +1,52 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "30057"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121109",
+    "display" : "CESFAM IMPERIAL"
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "ODONT. ENDODONCIA"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "ODONTOLOGIA ESPEC."
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "ODONTOLOGIA ENDODONCIA"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF EL ALTO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM IMPERIAL"
+  } ]
+}

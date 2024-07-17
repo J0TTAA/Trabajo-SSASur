@@ -1,0 +1,17 @@
+{
+    "especialidad":"BRONCOPULMONAR INFANTIL",
+    "patologias":[
+        {
+            "patologia": "SBOR/ ASMA MENOR 15 AÑOS",
+            "criterios": "SBO-R que NO responde a tratamiento habitual ASMA: -Sospecha de Asma del lactante -Asma bronquial moderada a severa en menores de 15 años. *Flujo de derivación: APS 🡪 Pediatría 🡪Broncopulmonar infantil  ",
+            "examenes": "Radiografía de tórax Espirometría si paciente colabora.",
+            "observaciones": "VALORAR: -Técnica uso de aerocámara- Indicaciones - Control ambiental"
+        },
+        {
+            "patologia": "NEUMONIAS BACTERIANAS RECURRENTES",
+            "criterios": "Pacientes con historia clínica de neumonía bacteriana 2 o más episodios en 1 año o más de 3 en cualquier tiempo, documentada con Rx. de tórax. *Flujo de derivación: APS 🡪 Pediatría 🡪Broncopulmonar infantil  ",
+            "examenes": "Rx de Tórax Hemograma. Deseable IGs GAME (para gestión en Hosp. Nodo)",
+            "observaciones": ""
+        }
+    ]
+}

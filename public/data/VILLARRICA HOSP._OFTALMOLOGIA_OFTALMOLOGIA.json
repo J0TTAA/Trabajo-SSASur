@@ -1,0 +1,91 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "203"
+  }, {
+    "system" : "http://minsal.cl/codigo-sigte",
+    "value" : "07-044"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121109",
+    "display" : "VILLARRICA HOSP."
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "OFTAL. POLI URGENCIA Y PROC."
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "OFTALMOLOGIA"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "OFTALMOLOGIA"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILLARRICA HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|C.S.R. CURARREHUE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|C.S.R. PUCON"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|C.S.U. LOS VOLCANES"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF 21 DE MAYO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF PUCON ORIENTE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF TODOS LOS SANTOS (EX LOS VOLCANES)"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF сNCUL"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM LICAN RAY"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM VILLARRICA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CGR HUISCAPI"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CURARREHUE DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|LONCOCHE DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|LONCOCHE HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PUCON DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PUCON HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TELETON TEMUCO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TEMUCO HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILLARRICA DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILLARRICA HOSP."
+  } ]
+}

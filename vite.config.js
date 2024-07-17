@@ -6,7 +6,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@mui/material': '@mui/material',
-      '@mui/icons-material': '@mui/icons-material',
+      '@mui/icons-material': '@mui/icons-material','@': '/src',
     },
   },
 });

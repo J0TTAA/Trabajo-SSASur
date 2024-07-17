@@ -1,0 +1,61 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "67502"
+  }, {
+    "system" : "http://minsal.cl/codigo-sigte",
+    "value" : "07-044"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121109",
+    "display" : "CESFAM LAUTARO"
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "OFTALMOLOGIA RESOLUTIVIDAD"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "OFTALMOLOGIA"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "OFTALMOLOGIA"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF DR. MAXIMINO BELTRAN MORA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF GUACOLDA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF PILLALELBUN"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM LAUTARO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PSR DOLLINCO"
+  } ]
+}

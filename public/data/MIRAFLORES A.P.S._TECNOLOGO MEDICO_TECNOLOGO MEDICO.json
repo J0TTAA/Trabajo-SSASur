@@ -1,0 +1,61 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "67514"
+  }, {
+    "system" : "http://minsal.cl/codigo-sigte",
+    "value" : "07-044"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121109",
+    "display" : "MIRAFLORES A.P.S."
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "TECNOLOGO MEDICO OFTALMOLOGIA RESOLUTIVIDAD"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "TECNOLOGO MEDICO"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "TECNOLOGO MEDICO"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF SAN ANTONIO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM METODISTA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|MAKEWE-PELALE HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|MIRAFLORES A.P.S."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PRAIS (S.S ARAUCANIA SUR)"
+  } ]
+}

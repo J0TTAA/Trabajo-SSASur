@@ -1,0 +1,189 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "53171"
+  }, {
+    "system" : "http://minsal.cl/codigo-sigte",
+    "value" : "07-009"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121109",
+    "display" : "TEMUCO HOSP."
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "CIRUGIA INFANTIL"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "CIRUGIA PEDIATRICA"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "CIRUGIA PEDIATRICA"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|ANGOL HOSPITAL"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|C.G.R. LASTARRIA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|C.S.D.A M. SERGIO VALECH"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|C.S.R. PERQUENCO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|C.S.R. PUCON"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF ARQUENCO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF BARROS ARANA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF CHERQUENCO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF DR. MAXIMINO BELTRAN MORA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF EL BOSQUE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF GUACOLDA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF LAS QUILAS"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF LAS VILLAS"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF PILLALELBUN"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF SAN ANTONIO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF ULTRAESTACION"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF VILLA EL SALAR"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM AMANECER"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM ANDRES SANDOVAL CALDERON"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM CAJON"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM CONUN HUENU"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM EL CARMEN"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM FREIRE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM G.U. PEDRO DE VALDIVIA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM HUALPIN"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM LABRANZA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM LAS COLINAS"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM LAUTARO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM MELIPEUCO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM METODISTA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM PADRE LAS CASAS"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM PITRUFQUEN"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM PUEBLO NUEVO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM PULMAHUE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM QUEPE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM SANTA ROSA"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM TEODORO SCHMIDT"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM VILLA ALEGRE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|COMPLEJO ASISTENCIAL PADRE LAS CASAS"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CUNCO HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|FREIRE DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|GALVARINO DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|GALVARINO HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|GORBEA DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|GORBEA HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|IMPERIAL HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|LAUTARO HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|MAKEWE-PELALE HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|MELIPEUCO DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|MIRAFLORES A.P.S."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PADRE LAS CASAS DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PERQUENCO DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PITRUFQUEN DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PITRUFQUEN HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PRAIS (S.S ARAUCANIA SUR)"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PSR DOLLINCO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PSR QUITRATUE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|T. SCHMIDT DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TELETON TEMUCO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TEMUCO DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TEMUCO HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TOLTEN DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TOLTEN HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VICTORIA HOSPITAL"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILCUN DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILCUN HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILLARRICA DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILLARRICA HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TEMUCO HOSP."
+  } ]
+}

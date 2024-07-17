@@ -1,0 +1,29 @@
+{
+    "especialidad": "Ginecologia",
+    "patologias":[
+        {
+            "patologia": "DIU SIN GUIAS",
+            "criterios": "1° Se intenta extracción en APS 2° IC por Ginecólogo (no por Matrón). Hacer IC desde APS para ECO, no para Ginecología General",
+            "examenes": "Ecografía TV Exámenes pre operatorios. ",
+            "observaciones": "Derivar siempre"
+        },
+        {
+            "patologia": "ENDOMETRIOSIS",
+            "criterios": "Sospecha ecográfica (Ecografía TV). ",
+            "examenes": "",
+            "observaciones": "*NO derivar por dismenorrea (debe ser visto por ginecólogo infanto juvenil o Ginecólogo general)"
+        },
+        {
+            "patologia": "INFERTILIDAD: -FEMENINA -FEMENINA ASOCIADA A FALTA DE OVULACIÓN -DE ORIGEN TUBARIO - SECUNDARIA",
+            "criterios": "Derivada por Ginecología general *Flujo de derivación:  APS 🡪 Ginecología General 🡪 Policlínico de Infertilidad",
+            "examenes": "HSG, Eco Tv con recuento de Folículos, en menores de 40 años, hormona antimülleriana, progesterona día 21 del ciclo.",
+            "observaciones": ""
+        },
+        {
+            "patologia": "INFERTILIDAD:- CONYUGAL",
+            "criterios": "Derivada por Ginecología general *Flujo de derivación: APS 🡪 Ginecología General 🡪 Policlínico de Infertilidad",
+            "examenes": "Derivar con Espermiograma, HSG, Eco Tv con recuento de Folículos, en menores de 40 años, hormona antimülleriana, progesterona día 21 del ciclo.",
+            "observaciones": "Desde APS derivar a Ginecología casos con imposibilidad de embarazo después de 12 meses o más manteniendo relaciones sexuales habituales sin protección."
+        }
+    ]
+}

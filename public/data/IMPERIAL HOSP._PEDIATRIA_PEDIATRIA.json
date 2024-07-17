@@ -1,0 +1,87 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "197"
+  }, {
+    "system" : "http://minsal.cl/codigo-sigte",
+    "value" : "07-047"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121109",
+    "display" : "IMPERIAL HOSP."
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "PEDIATRIA GENERAL"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "PEDIATRIA"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "PEDIATRIA"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|BOROA FILULAWEN C. SALUD"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CARAHUE HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF CARAHUE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CECOSF EL ALTO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM CHOL CHOL"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM IMPERIAL"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CESFAM TROVOLHUE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|CHOL CHOL DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|COMPLEJO ASISTENCIAL PADRE LAS CASAS"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|IMPERIAL HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|LAUTARO HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PITRUFQUEN HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PTO.SAAVEDRA DSM"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PTO.SAAVEDRA HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TEMUCO HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|VILLARRICA HOSP."
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|COMPLEJO ASISTENCIAL PADRE LAS CASAS"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|TEMUCO HOSP."
+  } ]
+}
