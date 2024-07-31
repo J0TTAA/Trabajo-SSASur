@@ -1,0 +1,34 @@
+
+{
+    "especialidad": "NEUROCIRUGÍA PEDIÁTRICA",
+    "patologias":[
+        {
+            "patologia": "SOSPECHA CRANEOSINOSTOSIS",
+            "criterios": "- Deformación craneofacial, incluyendo las posicionales",
+            "examenes": "Exámenes imagenológicos si los tiene",
+            "observaciones": "Adjuntar curva crecimiento craneano"
+        },
+        {
+            "patologia": "DISRAFIA",
+            "criterios": "Disrafia encefálica y espinal - Dg prenatal - Disrafia abierta al nacer - Estigmas de disrafia oculta",
+            "examenes": "Ecografía lumbar en menores de 4 meses. Idealmente RM en eco alterada o disrafia de alto riesgo",
+            "observaciones": "Disrafia abierta al nacer debe enviarse a Servicio de Urgencia HHHA"
+        },
+        {
+            "patologia": "TUMORES SNC",
+            "criterios": "- Todos las sospechas o confirmación de tumores SNC encefálicos o columna.",
+            "examenes": "Exámenes de imagen si las tiene, idealmente TAC o RMN ",
+            "observaciones": "- Si déficit neurológico o sindrome hipertensión intracraneana derivar a Servicio Urgencias HHHA"
+        },
+        {
+            "patologia": "HIDROCEFALIA",
+            "criterios": "- Sospecha o confirmación de hidrocefalia de cualquier causa",
+            "examenes": "Exámenes de imagen si los tiene: TAC o RMN cerebro",
+            "observaciones": "Si clínicamente tiene hidrocefalia aguda, derivar a Servicio de Urgencias HHHA"
+        },
+        {
+            "patologia": "MACROCEFALIA Y MICROCEFALIA",
+            "criterios": "- Derivar a Neurología pediátrica",
+            "examenes": "TAC cerebro sin contraste",
+            "observaciones": "-"
+        }]}

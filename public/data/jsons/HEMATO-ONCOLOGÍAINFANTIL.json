@@ -1,0 +1,105 @@
+{
+    "especialidad": "HEMATOLOGÍA - ONCOLOGÍA ADULTO",
+    "patologias":[
+        {
+            "patologia": "ANEMIA",
+            "criterios": "Anemia normocítica o macrocítica. VCM de acuerdo a edad: > 70 + Edad(años)",
+            "examenes": "Hemograma con frotis, Reticulocitos.",
+            "observaciones": "Recomendable evaluación por pediatra previo a derivación (Descartar causas secundarias)"
+        },
+        {
+            "patologia": "ANEMIA",
+            "criterios": "Anemia microcítica en Escolar o que no responda a ferroterapia adecuada. VCM de acuerdo a edad: < 70 + Edad(años) Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma con frotis, Reticulocitos, Cinética de fierro (según cartera de prestaciones) ",
+            "observaciones": "Anemia ferropriva carencial del lactante derivar solo si no hay respuesta a terapia con Fe en dosis adecuadas (revisar adherencia al tratamiento). Investigar causa de ferropenia en todo mayor de 4 años."
+        },
+        {
+            "patologia": "TRASTORNO DE LOS LEUCOCITOS",
+            "criterios": "Eosinofilia > 1500/mm3 Persistente por 6 meses o con evidencia de daño orgánico (piel, corazón, SNC, hígado) Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil Neutropenia < 1000/mm3 en al menos 2 controles separados por una semana Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma con frotis, función hepática y renal, LDH, Inmunoglobulinas Hemograma con frotis, Inmunoglobulinas",
+            "observaciones": "Descartar causas alérgicas y parasitarias. Estudio inicial por pediatra. Derivar a servicio de urgencias si se encuentra en contexto de infección bacteriana."
+        },
+        {
+            "patologia": "TRASTORNO DE LOS LEUCOCITOS",
+            "criterios": "Leucocitosis > 30.000/mm3 aislada Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma con frotis",
+            "observaciones": "Derivar si no está en contexto de proceso infeccioso/inflamatorio. Previa evaluación por pediatra."
+        },
+        {
+            "patologia": "TROMBOCITOPENIA",
+            "criterios": "Plaquetas <20.000/mm3 Aislada Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "-",
+            "observaciones": "Derivar a servicio de urgencias."
+        },
+        {
+            "patologia": "TROMBOCITOPENIA",
+            "criterios": "Plaquetas > 20.000/mm3 aislada sin sangrado. Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma con frotis, Reticulocitos",
+            "observaciones": "Mantener seguimiento semanal por pediatra hasta control por sub-especialidad."
+        },
+        {
+            "patologia": "TROMBOCITOSIS",
+            "criterios": "Plaquetas >600.000/mm3 Aislada en al menos 2 controles separados por cuatro semanas Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma con frotis",
+            "observaciones": "Derivar solo si persiste en el tiempo, no asociado a patología infecciosa/inflamatoria. Descartar ferropenia latente."
+        },
+        {
+            "patologia": "ADENOPATÍAS",
+            "criterios": "Adenopatías que reúnan los siguientes criterios: - Tamaño > 2 cm - Forma redondeada - Consistencia dura/gomosa - Ausencia de signos inflamatorios o foco infeccioso en territorio de drenaje - Adherencia a planos profundos - Aumento de tamaño en el tiempo - Localización supraclavicular (TODAS) - Síndrome adénico generalizado (fuera de contexto infeccioso) - Asociación a síntomas B (fiebre vespertina, pérdida de peso, sudoración nocturna) Flujo de derivación: - APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma con frotis, VHS, Perfil bioquímico, Ecografía ganglionar / abdominal según cartera de prestaciones. Rx tórax.",
+            "observaciones": "Derivar a urgencias si se asocia a síntomas compresivos (síndrome vena cava superior). Intentar curso corto con antibiótico/antinflamatorio y evaluar respuesta previo a derivación, si hay sospecha de cuadro infeccioso local. ** NO USAR CORTICOIDES PREVIO A LA DERIVACIÓN**"
+        },
+        {
+            "patologia": "ESPLENOMEGALIA",
+            "criterios": "Derivar si se asocia a alteraciones del hemograma Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma con frotis y reticulocitos, función hepática, Ecodoppler abdominal.",
+            "observaciones": "Evaluación previa por pediatra para descartar causas infecciosas, Hipertensión portal, Enfermedad de depósito."
+        },
+        {
+            "patologia": "COAGULOPATÍAS",
+            "criterios": "Prolongación aislada de tiempos de coagulación (TP y TTPa) en 2 controles separados por al menos 4 semanas en paciente asintomático. Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma, Perfil de coagulación realizado en HHHA con hora citada.",
+            "observaciones": "En pacientes con TP prolongado de forma aislada evaluar respuesta a administración de Vitamina K."
+        },
+        {
+            "patologia": "COAGULOPATÍAS",
+            "criterios": "Paciente con sangrado muco-cutáneo recurrente o severo. Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma, Perfil de coagulación realizado en HHHA con hora citada.",
+            "observaciones": "Anamnesis historia familiar sugerente de coagulopatía congénita. Sin causa local gatillante (ej: gingivitis, rinitis alérgica)"
+        },
+        {
+            "patologia": "COAGULOPATÍAS",
+            "criterios": "Hematomas o Hemartrosis desproporcionadas al trauma. Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma, Perfil de coagulación realizado en HHHA con hora citada.",
+            "observaciones": ""
+        },
+        {
+            "patologia": "COAGULOPATÍAS",
+            "criterios": "Paciente con familiar de primer grado con diagnóstico de coagulopatía congénita. Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Hemograma, Perfil de coagulación realizado en HHHA con hora citada.",
+            "observaciones": ""
+        },
+        {
+            "patologia": "PACIENTE EN TRATAMIENTO ANTOCOAGULANTE",
+            "criterios": "Paciente en tratamiento anticoagulante con HBPM o anticoagulantes orales. Flujo de derivación: APS 🡪Pediatría 🡪 Hemato – oncología infantil",
+            "examenes": "Perfil de coagulación",
+            "observaciones": "En caso de cardiópatas, evaluación por cardiología infantil HHHA previo. "
+        },
+        {
+            "patologia": "TROMBOFILIA",
+            "criterios": "Sospecha de trombofilia: Episodio de enfermedad tromboembólica.  Localización poco habitual de evento trombótico. Familiares de pacientes con trombofilia primaria y/o antecedentes trombóticos relevantes. Trombosis o purpura fulminante neonatal",
+            "examenes": "Perfil de coagulación realizado en HHHA con hora citada.",
+            "observaciones": ""
+        },
+        {
+            "patologia": "CANCER",
+            "criterios": "Derivación  según manual “Detección cáncer Infantil y cómo derivar” (MINSAL) https://redcronicas.minsal.cl/wrdprss_minsal/wp-content/uploads/2014/08/Manual-cuando-sospechar-un-c%c3%a1ncer-en-el-ni%c3%b1o-y-c%c3%b3mo-derivar-2012.pdf",
+            "examenes": "No demorar derivación en espera de exs con sospecha fundada. Adjuntar exs pertinentes a la sospecha Dg",
+            "observaciones": "Evaluación por pediatra previo a traslado si hay disponibilidad inmediata."
+        },
+        {
+            "patologia": "",
+            "criterios": "",
+            "examenes": "",
+            "observaciones": ""
+        }]}

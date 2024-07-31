@@ -1,0 +1,28 @@
+
+{
+    "especialidad": "NUTRICIÓN INFANTIL",
+    "patologias":[
+        {
+            "patologia": "MALNUTRICIÓN POR EXCESO",
+            "criterios": "Niños, niñas y adolescentes hasta 15 años de edad que presenten Obesidad asociada con: · Retraso del desarrollo sicomotor o deterioro intelectual · Presión arterial mayor al percentil 90 para la edad, sexo y talla · Dislipidemia persistente con manejo nutricional adecuado de 6 meses. . IMC >+3 DS +2 o más FR CV o SD metabólico con intervención en APS ·Sospecha de Obesidad secundaria. ·Síndrome de Cushing (cara de luna y/o dorso de búfalo, hirsutismo, HTA) · Síndromes genéticos · Apnea del sueño",
+            "examenes": "Derivar siempre con exámenes recientes (idealmente <3m): Glicemia – perfil lipídico – TSH - pruebas hepáticas) y ecografía Abdominal según disponibilidad.",
+            "observaciones": "-"
+        },
+        {
+            "patologia": "MALNUTRICIÓN POR DÉFICIT",
+            "criterios": "Niños, niñas y adolescentes hasta 15 años de edad que presenten malnutrición por déficit asociada a: ·Talla menor a - 2 DS ·Vomitadores crónicos o sospecha trastorno deglución ·Diarrea a repetición o crónica · Anorexia persistente o sospecha de trastorno de ingesta alimentaria · Anomalías específicas del examen físico o sospecha de genopatía · Retraso del desarrollo psicomotor ·Distribución anormal de la grasa corporal ·Signos carenciales",
+            "examenes": "-",
+            "observaciones": "-"
+        },
+        {
+            "patologia": "TRASTORNOS ALIMENTARIOS",
+            "criterios": "Niños, niñas y adolescentes hasta 18 años de edad que presenten: . Sospecha o diagnóstico de ARFID (TERIA) o anorexia nerviosa o bulimia u otro trastorno conducta alimentaria ·Existencia de conductas compensatorias inapropiadas que se presentan de manera repetida con el fin de no ganar peso como vómitos autoinducidos, abuso de laxantes, diuréticos, enemas, fármacos, ayuno y/o ejercicio excesivo con una duración mayor a tres meses.",
+            "examenes": "",
+            "observaciones": ""
+        },
+        {
+            "patologia": "NECESIDAD DE NUTRICIÓN ENTERAL",
+            "criterios": "Niños, niñas y adolescentes hasta 15 años de edad que presenten requerimiento de alimentación por sonda o gastrostomía por más de 3 meses, que presenten estado nutricional de riesgo o condición de salud crónica que pueda ser de riesgo (ej. fibrosis quística, DHC, entre otros)",
+            "examenes": "",
+            "observaciones": ""
+        }]}

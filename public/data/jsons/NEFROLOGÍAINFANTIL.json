@@ -1,0 +1,34 @@
+
+{
+    "especialidad": "NEFROLOGÍA INFANTIL",
+    "patologias":[
+        {
+            "patologia": "ITU",
+            "criterios": "1. ITU febril 2. ITU recurrente 3. ITU atípica 4. RVU 5. Trastornos miccionales que no respondan a uroterapia estándar y/o anomalías de la región dorsolumbar 6. Daño renal confirmado en estudios de imágenes o laboratorio (proteinuria, aumento de creatinina) 7. HTA 8. Retraso de crecimiento 9. Antecedentes familiares de enfermedad nefrourológica y/o ERC. Flujo de derivación: APS 🡪Pediatría 🡪 Nefrología infantil",
+            "examenes": "- Ecografía renal y vesical con medición de volumen vesical pre y post micción",
+            "observaciones": "- Revisar que técnica de toma de muestra del examen de orina sea la correcta - Aporte adecuado de líquidos - Higiene genitoperineal - Evitar irritantes locales - Uroterapia estándar - Tratar constipación - Iniciar uroprofilaxis en: niños < 1 año después de su primera ITU febril, diagnóstico antenatal de malformación de la vía urinaria, RVU, patología obstructiva, ITU recurrente, disfunciones miccionales"
+        },
+        {
+            "patologia": "PIELECTASIA/HIDRONEFROSIS",
+            "criterios": "1. Hidronefrosis prenatal con diámetro AP de la pelvis renal > 4 mm antes de las 33 semanas de gestación y > 7 mm después de las 33 semanas de gestación. 2. Hidronefrosis prenatal bilateral, asociada a dilatación del uréter, megavejiga, oligoamnios o monorrenos. Flujo de derivación: APS 🡪Pediatría 🡪 Nefrología infantil",
+            "examenes": "- Ecografía renal y vesical con medición de volumen vesical pre y post micción, 7-10 días después de nacer.",
+            "observaciones": "- Iniciar uroprofilaxis "
+        },
+        {
+            "patologia": "PROTEINURIA/HEMATURIA",
+            "criterios": "1. Proteinuria glomerular primaria (síndrome nefrótico, nefropatía IgA o PSH, síndrome Alport, nefropatía membranosa, GN membrano proliferativa) y secundaria (postinfecciosa, LES, DM) 2. Proteinuria tubular primaria (síndrome Fanconi, enfermedad Dent y Lowe, enfermedades mitocondriales) y secundaria (tóxicos, NTA, nefritis tubulointersticial)  3. Proteinuria ortostática 4. Hematuria glomerular (postinfecciosa, nefropatía IgA o PSH, síndrome Alport, nefropatía lúpica, GN membranoproliferativa, SHU) 5. Trauma renal 6. Patología intersticial (PNA, nefritis tubulointersticial, tumor renal, enfermedad poliquística, obstrucción pieloureteral, trombosis vascular) Flujo de derivación: APS 🡪Pediatría 🡪 Nefrología infantil",
+            "examenes": "- Hemograma - Creatinina, BUN, gases, ELP, albúmina, calcio, fósforo, ácido úrico - ASO, C3-C4 - Orina completa - Urocultivo - MAU, proteinuria, creatininuria en muestra aislada de orina - Ecografía renal y vesical con Doppler renal",
+            "observaciones": "- Evaluar presencia de edema, palidez, exantema, púrpura, masa abdominal, globo vesical - Peso, diuresis - Toma de PA con técnica correcta: niño sentado, permanecer en reposo al menos 5 minutos, brazo derecho descubierto, pies apoyados en el piso, manguito de PA a la altura del corazón - Descartar causas transitorias como: infecciones, deshidratación, fiebre, ejercicio intenso"
+        },
+        {
+            "patologia": "INCONTINENCIA/ENURESIS",
+            "criterios": "1. Incontinencia urinaria   2. Enuresis monosintomática 3. Enuresis no monosintomática  Flujo de derivación: APS 🡪Pediatría 🡪 Nefrología infantil",
+            "examenes": "- Orina completa - Urocultivo - Ecografía renal y vesical con medición de volumen vesical pre y post micción",
+            "observaciones": "- Aporte adecuado de líquidos - Uroterapia estándar - Descartar ITU - Tratar constipación - Cartilla miccional"
+        },
+        {
+            "patologia": "HTA",
+            "criterios": "1. HTA primaria 2. HTA renovascular 3. Malformaciones renales congénitas (displasia renal, riñón poliquístico, hipoplasia renal, riñón único, uropatías obstructivas) 4. Enfermedades del parénquima renal (nefropatía por reflujo, cicatriz renal secundaria a ITU, SHU, glomerulonefritis crónica, nefropatía por PSH, nefropatía lúpica, tumor renal) Flujo de derivación: APS 🡪Pediatría 🡪 Nefrología infantil",
+            "examenes": "- Hemograma - Creatinina, BUN, gases, ELP, albúmina, calcio, fósforo, ácido úrico - Orina completa - Urocultivo - MAU, proteinuria, creatininuria en muestra aislada de orina - En pacientes con obesidad, dislipidemia o síndrome metabólico: perfil lipídico, glicemia en ayunas, insulina en ayunas - Ecografía renal y vesical con Doppler",
+            "observaciones": "- Toma de PA con técnica correcta: niño sentado, permanecer en reposo al menos 5 minutos, brazo derecho descubierto, pies apoyados en el piso, manguito de PA a la altura del corazón - Alimentación saludable - Comer sin sal  - Realizar actividad física - Suspender medicamentos y/o drogas que aumenten la PA"
+        }]}

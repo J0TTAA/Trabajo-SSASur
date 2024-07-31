@@ -1,0 +1,79 @@
+{
+    "especialidad": "GASTROENTEROLOGÍA INFANTIL – ALERGIA A LA PROTEÍN DE LECHE DE VACA",
+    "patologias":[
+        {
+            "patologia": "ALERGIA ALIMENTARIA - ALERGIA A LA PROTEÍNA DE LECHE DE VACA",
+            "criterios": "- Clínica sugerente con prueba y contraprueba positiva que NO corresponda a nodo CAPLC, Villarrica, Imperial, Pitrufquén, Lautaro - Paciente de difícil manejo con clínica de FPIES, FPE *Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "- hemograma- bioquímico - Coprocultivo",
+            "observaciones": "- curva nutricional según edad - Revisar técnica de lactancia *Descartar otras patologías *Pacientes con clínica IgE mediada, derivar a Inmunología Pediátrica."
+        },
+        {
+            "patologia": "CONSTIPACION",
+            "criterios": "- Pacientes con criterio ROMA IV, con banderas rojas - Constipación de difícil manejo Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "- Según sospecha clínica",
+            "observaciones": "- Ev nutricional - Tratamiento realizado y evoluciones"
+        },
+        {
+            "patologia": "DOLOR ABDOMINAL CRONICO",
+            "criterios": "- Sospecha de etiología orgánica - Sin respuesta a tto (contexto biopsicosocial) Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "- Según sospecha diagnostica",
+            "observaciones": "- Establecer signos/ síntomas de alarma que presenta y estudio asociado según ello (historia familiar: ulcera péptica, enf celiaca, enf inflamatoria intestinal) y manejo realizado."
+        },
+        {
+            "patologia": "Hepatitis Aguda",
+            "criterios": "- Sin signos de insuficiencia hepática Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "- Según sospecha: Hemograma, Perfil hepático - Eco abdominal",
+            "observaciones": "- Ev clínica si amerita hospitalización"
+        },
+        {
+            "patologia": "Falla hepática aguda",
+            "criterios": "- Servicio urgencia, no corresponde derivación a CDT Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "-",
+            "observaciones": "- Hospitalización UPC, derivación precoz a centro de trasplante en caso de cumplir criterios."
+        },{
+            "patologia": "Enfermedad por Reflujo Gastroesofágico",
+            "criterios": "- Derivación para evaluación en caso de  signos/síntomas de alarma, sin sospecha de causa quirúrgica o metabólica",
+            "examenes": "",
+            "observaciones": "- Curva crecimiento, incremento ponderal, signo/síntoma alarma, manejo realizado."
+        },{
+            "patologia": "Hipertransaminasemia",
+            "criterios": "- Derivación con 2do estudio elevado y CK normal Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "- Perfil hepático - Eco abdominal - Serología Virus A, B, C, E, CMV, VEB - EO/URC(lactantes) - Hmas tiroideas - Marcadores de enf celiaca",
+            "observaciones": "- Curva crecimiento, evaluación nutricional, manejo realizado."
+        },{
+            "patologia": "Diarrea crónica",
+            "criterios": "- En caso de banderas rojas: deterioro pondoestatural e inicio precoz del cuadro - Pacientes refractarios a manejo inicial Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "- Según sospecha diagnostica",
+            "observaciones": "- Curva crecimiento/ ev nutricional - Signos/síntomas de alarma, ant familiares."
+        },{
+            "patologia": "Ictericia en el menor de 3 meses",
+            "criterios": "- En paciente con ictericia, acolia y/o coluria Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "- BT-BD",
+            "observaciones": "- Si predominio directo, derivación para descarte AVB."
+        },{
+            "patologia": "Sospecha de cuerpo extraño",
+            "criterios": "- No corresponde derivación por interconsulta. Derivar vía Urgencia según sintomatología y sospecha ",
+            "examenes": "",
+            "observaciones": ""
+        },{
+            "patologia": "Hemorragia Digestiva Alta/baja",
+            "criterios": "- No corresponde  generar interconsulta si hemodinamia inestable o sangrado activo, en cuyo caso se debe derivar vía urgencia. ",
+            "examenes": "",
+            "observaciones": "Derivación ambulatoria con Hgma, cinética de Fe, P. coagulación"
+        },{
+            "patologia": "Gastroenteritis Aguda",
+            "criterios": "- No corresponde IC. Atención de urgencia ",
+            "examenes": "",
+            "observaciones": ""
+        },{
+            "patologia": "Sospecha Enfermedad celiaca",
+            "criterios": "- Ante sospecha por clínica GE o extra intestinal ( anemia, talla baja, enf autoinmunes, sint neuropsiq) o búsqueda activa Flujo de derivación: APS🡪Pediatría 🡪Gastroenterología infantil",
+            "examenes": "Según disponibilidad: - IgA total - Ac antitransglutaminasa",
+            "observaciones": "- NO INDICAR DIETA LIBRE DE GLUTEN HASTA COMPLETAR ESTUDIO"
+        },{
+            "patologia": "Enfermedad Inflamatoria Intestinal",
+            "criterios": "- Diarrea con sangre con estudio negativo o que dura más de 10 días - Dolor abdominal y desnutrición sin otra explicación",
+            "examenes": "- Exámenes generales básicos: hemograma con VHS - PCR - Estudio infeccioso en deposición",
+            "observaciones": "Evaluación nutricional"
+        }
+        ]}

@@ -1,0 +1,63 @@
+{
+    "especialidad": "INMUNO-REUMATOLOGÍA INFANTIL",
+    "patologias":[
+        {
+            "patologia": "ALERGIA",
+            "criterios": "Debe ser derivado a Inmunología solo si:            1. Ha presentado compromiso vital (anafilaxia por ej)                                      2. Pacientes alérgicos refractarios a tratamiento.                                3. Pacientes con sospecha de angioedema hereditario. Flujo de derivación: APS 🡪Pediatría 🡪 Inmunoreumatología infantil",
+            "examenes": "Hemograma, Pbq,  IgS GAME, C3 y C4. ",
+            "observaciones": "Dar las indicaciones generales de manejo de alergia. Hacer tratamiento de dermatitis atópica según protocolos con lubricación, corticoides tópicos y en conjunto con dermatología. En caso de rinitis alérgica tratarla corticoides nasales y antialérgicos. Derivar solo los casos refractarios a tratamiento"
+        },
+        {
+            "patologia": "INMUNODEFICIENCIA",
+            "criterios": "Inmunodeficiencias primarias(según los criterios Jeffrey Modell), siempre derivar. Flujo de derivación: APS 🡪Pediatría 🡪 Inmunoreumatología infantil",
+            "examenes": "Hemograma , PCR, Pbq, orina completa, IgS GAME, C3 y C4.",
+            "observaciones": "Ante sospecha de inmunodeficiencia combinada severa avisar inmediatamente."
+        },
+        {
+            "patologia": "ENFERMEDADES AUTOINFLAMATORIAS",
+            "criterios": "Cuadro clínico compatible, siempre derivar. Flujo de derivación: APS 🡪Pediatría 🡪 Inmunoreumatología infantil",
+            "examenes": "Hemograma , PCR, VHS, Ferritina, Pbq, orina completa, IgS GAME, C3 y C4, Ac Antinuclear.",
+            "observaciones": "Manejo sintomático, idealmente sin esteroides."
+        },
+        {
+            "patologia": "SOSPECHA CLINICA DE ENFERMEDAD AUTOINMUNE ( AIJ, LUPUS ETC)",
+            "criterios": "Cuadro clínico compatible, siempre derivar. Flujo de derivación: APS 🡪Pediatría 🡪 Inmunoreumatología infantil",
+            "examenes": "Hemograma, PCR, VHS, Pbq, orina completa, IgS GAME, C3 y C4, Ac Antinuclear y Factor Reumatoideo.",
+            "observaciones": "Manejo sintomático, idealmente sin esteroides."
+        },
+        {
+            "patologia": "ALERGIA A LA PROTEINA DE LA LECHE",
+            "criterios": "Estos pacientes deben ser derivados a gastroenterología pediátrica, donde existe un policlínico de APLV y si los médicos tratantes consideran necesario, nos los derivan para reevaluación en inmunología. Flujo de derivación: APS 🡪Gastroenterología pediátrica 🡪 Inmunoreumatología infantil",
+            "examenes": "",
+            "observaciones": ""
+        },
+        {
+            "patologia": "",
+            "criterios": "",
+            "examenes": "",
+            "observaciones": ""
+        },
+        {
+            "patologia": "",
+            "criterios": "",
+            "examenes": "",
+            "observaciones": ""
+        },
+        {
+            "patologia": "",
+            "criterios": "",
+            "examenes": "",
+            "observaciones": ""
+        },
+        {
+            "patologia": "",
+            "criterios": "",
+            "examenes": "",
+            "observaciones": ""
+        },
+        {
+            "patologia": "",
+            "criterios": "",
+            "examenes": "",
+            "observaciones": ""
+        }]}

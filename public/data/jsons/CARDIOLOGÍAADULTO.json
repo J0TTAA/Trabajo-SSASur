@@ -2,34 +2,39 @@
     "especialidad": "CARDIOLOGIA ADULTO",
     "patologias":[
         {
-            "patologia": "",
-            "criterios": "",
-            "examenes": "",
+            "patologia": "ARRITMIAS CARDÍACAS ",
+            "criterios": "- Arritmias ventriculares o supraventriculares sintomáticas. Incluye TPSV, WPW, ACxFA - Bradiarritmias sintomáticas. Bloqueo A-V o intraventriculares de alto grado. *Flujo de derivación: APS 🡪 Med. Interna 🡪 Cardiología",
+            "examenes": "- ECG diagnostico Exámenes laboratorio: glicemia, función renal, ELP, TSH y T4L,  perfil lipídico",
+            "observaciones": "Considerar derivaciones activando GES según corresponda. https://auge.minsal.cl/problemasdesalud/index/25 Inicio de tratamiento anticoagulante, ver en Patología, “Tratamiento anticoagulante”, guía N°7 SSAS: Tratamiento con anticoagulantes orales."
+        },
+        {
+            "patologia": "INSUFICIENCIA CARDÍACA CONGESTIVA",
+            "criterios": "ICC aguda descompensada (según gravedad considerar derivación vía urgencia). ICC CF 3 o 4 con disfunción sistólica o diastólica. *Flujo de derivación: APS 🡪 Med. Interna 🡪 Cardiología",
+            "examenes": "ECG Exámenes laboratorio: Hgma, glicemia, función renal, ELP, TSH y T4L,  perfil lipídico *Pro BNP de ser factible",
             "observaciones": ""
         },
         {
-            "patologia": "",
-            "criterios": "",
-            "examenes": "",
+            "patologia": "CARDIOPATÍA CORONARIA - ANGINA",
+            "criterios": "Antecedente de IAM, pasado período agudo Ángor crónico estable de baja capacidad funcional. *Flujo de derivación: APS 🡪 Med. Interna 🡪 Cardiología",
+            "examenes": "ECG Exámenes laboratorio: Hgma, glicemia, función renal, ELP, perfil lipídico Antecedentes clínicos u hospitalización",
             "observaciones": ""
         },
         {
-            "patologia": "",
-            "criterios": "",
-            "examenes": "",
+            "patologia": "SÍNCOPE CARDIOGÉNICO",
+            "criterios": "Asociado a síntomas de alarma: - Sin pródromos - Asociado a ejercicio - Antecedente personal de cardiopatía, arritmias. - Antecedente familiar 1° de Muerte súbita, PCR recuperado, DAI o MCP. -ECG alterado *Flujo de derivación: APS 🡪 Med. Interna 🡪 Cardiología",
+            "examenes": "-Radiografía de tórax -EKG",
             "observaciones": ""
+        }, {
+            "patologia": "SOPLO CARDÍACO",
+            "criterios": "Derivar ambulatorio -Asociado a antecedente de familiar de 1° con Miocardiopatía, MS. -Genopatía asociada -Asociado a alteraciones del EKG o de RX de Tórax *Flujo de derivación: APS 🡪 Med. Interna 🡪 Cardiología",
+            "examenes": "- Radiografía de tórax -EKG -Ex laboratorio: Hgma, glicemia, función renal, ELP, TSH y T4L,  perfil lipídico",
+            "observaciones": "Soplo patológico: Holosistólico, diastólico, continuo, con frémito."
         },
         {
-            "patologia": "",
-            "criterios": "",
-            "examenes": "",
-            "observaciones": ""
-        },
-        {
-            "patologia": "",
-            "criterios": "",
-            "examenes": "",
-            "observaciones": ""
+            "patologia": "TRATAMIENTO ANTICOAGULANTE",
+            "criterios": "Criterios para pacientes con indicación de TACO: A1.- Trombosis Venosa Profunda, Tromboembolismo Pulmonar. A2.- Fibrilación Auricular, Arritmia Completa por Fibrilación Auricular (según escala CHA2DS2- VASc) (anexo 10) y Flutter sin embolia sistémica, (prevención isquemia). A3.- Accidente vascular embolico con fibrilación auricular. A4.- Fibrilación Auricular Paroxística y Flutter auricular con indicación de Cardioversión (Control Ritmo). A5.- Fibrilación Auricular con Valvulopatías. A6.- Prótesis valvular mecánica Mitral, Prótesis valvular mecánica Aórtica y Prótesis valvular mecánica Tricuspídea. A7.- Prótesis valvulares Biológicas. A8.- Trombo Intracavitario, Infarto cardiaco extenso de pared anterior con diskinesia o akinesia del ápex. A9.- Hipertensión Pulmonar (tipo IV), Miocardiopatía Dilatada con fracción de eyección < a 35% (alto riesgo de trombosis) y Trombofilias. Derivar al Hospital más cercano a policlínico de Anticoagulante con formularios e indicaciones correspondientes para inicio de terapia.",
+            "examenes": "1. Formulario de ingreso a tratamiento anticoagulante y Consentimiento informado (ANEXO 10) 2. Epicrisis, DAU o resumen de historia clínica 3. Exámenes: Hemograma INR capilar Función renal",
+            "observaciones": "Guía N°7 SSAS: Tratamiento con anticoagulantes orales. Derivaciones desde Hospitales familiares y comunitarios debe realizarse IC asincrónica a Telemedicina Cardiología Hospital Lautaro (informar tras generación de interconsulta a referente TACO de SSAS para asegurar agendamiento). *Contraindicaciones para inicio de terapia: -Has-Bled >= 3 puntos (ANEXO 10). - Antecedentes de sangramiento digestivo menor a 3 meses. -Aneurisma cerebral. -Antecedentes de hemorragia intracraneal. -Hepatopatías y nefropatías graves, (considerar esta última para tratamiento con nuevos anticoagulantes orales). -Primer trimestre de embarazo. -Anemia importante: Hb < 8 gr/dl. -Falta de cooperación del paciente e imposibilidad para cumplir el tratamiento."
         }
     ]
 }

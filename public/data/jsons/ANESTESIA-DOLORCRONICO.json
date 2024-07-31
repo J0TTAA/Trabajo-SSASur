@@ -1,0 +1,17 @@
+{
+    "especialidad": "ANESTESIA - DOLOR CRONICO",
+    "patologias": [
+        {
+            "patologia": "Dolor crónico no oncológico ",
+            "criterios": "- EVA  ≥ 5 a pesar de tratamiento en 3er escalón según OMS *Flujo de derivación: APS 🡪 Fisiatría 🡪 Dolor crónico (anestesia)",
+            "examenes": "Exámenes realizados en los últimos 15 días: Hemograma Pruebas de coagulación",
+            "observaciones": " "
+        },
+        {
+            "patologia": "Dolor crónico oncológico",
+            "criterios": "-EVA  ≥ 5 a pesar de tratamiento en 3er escalón según OMS *Flujo de derivación: APS 🡪 Unidad de Cuidados Paliativos de hospitales nodo 🡪 Dolor crónico (Anestesia)",
+            "examenes": "Exámenes realizados en los últimos 15 días: Hemograma Pruebas de coagulación",
+            "observaciones": " "
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "especialidad": "DERMATOLOGÍA",
+    "patologias":[
+        {
+            "patologia": "ACNÉ",
+            "criterios": "Derivar solo los casos de acné inflamatorio severo. *casos de acné inflamatorio y no inflamatorio pueden ser derivados a Hospital Digital en caso de duda diagnóstica o requerimiento de canasta farmacológica.  https://interconsulta.minsal.cl/",
+            "examenes": "EXÁMENES REQUERIDOS PARA LA DERIVACIÓN: -Hemograma -Pruebas hepáticas -Perfil lipídico -Función renal -En mujeres test de embarazo",
+            "observaciones": "MANEJO ACNE EN ATENCIÓN PRIMARIA: Derivar a Hospital Digital. -Acné comedoniano: adapaleno 0.1 gel o crema uso nocturno iniciar noche por medio capa fina por 2 semanas luego todas las noches por 1 año.  - Acné inflamatorio leve a moderado: adapaleno 0.1 más doxiciclina 100 mg o tetraciclina 250 mg cada 12 hrs por 6 semanas, según arsenal farmacológico 🡪 CONTROL A LOS 3 MESES: A) Evolución favorable: mantener adapaleno por 1 año. B) Sin respuesta a 3 meses de tratamiento: derivar todos los casos de acné inflamatorio severo."
+        },
+        {
+            "patologia": "DERMATITIS ATÓPICA Y DE CONTACTO",
+            "criterios": "Derivar en caso de fracaso al tratamiento *Considerar derivación a Hospital Digital en caso de duda diagnóstica o requerimiento de canasta farmacológica no disponible en APS https://interconsulta.minsal.cl/",
+            "examenes": "",
+            "observaciones": "MANEJO EN APS: Derivar a H. Digital. Medidas generales: Evitar contactantes, Uso de jabón, shampoo y productos HIPOALERGENICOS, Uso de ropa de algodón en contacto con la piel, Detergente hipoalergénico bebé. Lubricar con Vaselina sólida o crema hipoalergénica diariamente. Niños y en región facial y genital: -HIDROCORTISONA 1% 2 veces al día por 5 a 10 días según arsenal farmacológico Adultos y cuerpo:                    -BETAMETASONA 0.05% 2 veces al día MAXIMO por 10 a 14 días -Clorfenamina 4 mg en caso de prurito 🡪 CONTROL A LOS 15 DIAS Derivar a dermatología si mala respuesta. -Reforzar medidas generales de suspensión de contactantes."
+        },   {
+            "patologia": "NEVUS",
+            "criterios": "PRESENCIA SIGNOS DE ALARMA: 1. Alteración según regla ABCDE /Sospecha de Melanoma 2. Nevos Congénitos: -Nevo congénito de bordes irregulares / de dos o más colores -Nevo congénito periorificial o localizado en línea media -Nevo congénito que mida más de 1,5 cms o múltiples en menor 6 meses 3.    Nevos Adquiridos:  - Nevo asimétrico, borde irregular, dos o más colores o ulcerado - Nevo con halo blanco periférico - Nevo de reciente aparición en paciente mayor de 30 años - Cambio en Nevo: simetría, coloración, borde o superficie - Nevo localizado en mucosa oral, genital o subungueal - Nevo en paciente con antecedentes personales o familiares de melanoma Maligno o múltiples nevos, más de 100.",
+            "examenes": "",
+            "observaciones": "NO ES CRITERIO DE DERIVACION A DERMATOLOGIA: 1. Nevo con pelos, a menos que presente alguna característica de malignidad 2. Nevo cuyo único síntoma sea el prurito: Mayoría son por roce o trauma, control a los 15 días evitando irritantes y grataje con resolución de cuadro 3. Nevo con aumento de volumen regular progresivo con los años (frecuente en rostro y cuello) 4. Nevos que el paciente desea extirpar por motivos estéticos 5. Los nevos en las plantas y en las palmas se rigen por los mismos criterios de sospecha de malignidad del resto del cuerpo CIRUGIA MENOR AMBULATORIA EN CESFAM AMANECER (DSM TEMUCO) O PROPIA DEL ESTABLECIMIENTO  Puede resolver Atención Primaria los Nevos sospechosos o nevos señalados previamente si lo amerita siempre con Biopsia"
+        },
+        {
+            "patologia": "ROSÁCEA",
+            "criterios": "Derivar en caso de refractariedad de tratamiento. *Considerar derivación a Hospital Digital en caso de duda diagnóstica o requerimiento de canasta farmacológica. https://interconsulta.minsal.cl/",
+            "examenes": "EXÁMENES GENERALES: -Hemograma, Pruebas hepáticas y función renal.",
+            "observaciones": "MANEJO EN APS: 1. FOTOPROTECTOR HIPOALERGENICO 50 + uso al levantarse y medio día permanente. 2.  METRONIDAZOL 0.75 GEL uso 2 veces al día mínimo 6 meses o permanente, según arsenal farmacológico 3. MEDIDAS GENERALES: Evitar sol, calor, duchas calientes, etc Evitar alimentos muy calientes o condimentados, ají alcohol, café, etc. 🡪CONTROL A LAS 6 SEMANAS: -Si mala respuesta a tratamiento: Agregar doxiciclina 100 mg o tetraciclina 250 mg c 12 hrs por 6 semanas. 🡪CONTROL EN 6 SEMANAS: - Derivar a dermatología si no hay mejoría en 3 meses."
+        },   {
+            "patologia": "ONICOMICOSIS",
+            "criterios": "DERIVAR EN CASO DE: - Fracaso en el tratamiento - Duda diagnóstica *Considerar derivación a Hospital Digital en caso de duda diagnóstica o requerimiento de canasta farmacológica. https://interconsulta.minsal.cl/",
+            "examenes": "EXÁMENES GENERALES: -Hemograma, Pruebas hepáticas y Creatinina y revisar historia de disfunción hepática crónica o activa e interacciones farmacológicas.",
+            "observaciones": "MANEJO EN APS: SOLICITAR EXÁMENES: Hemograma, Pruebas hepáticas y Creatinina y revisar historia de disfunción hepática crónica o activa e interacciones farmacológicas. 🡪SI EXÁMENES NORMALES: Iniciar terbinafina a dosis de 250 mg/día por 1 mes según arsenal farmacológico Salvo casos de alta sospecha de onicomicosis por cándida (30% de los casos en manos e historia de paroniquia): Iniciar FLUCONAZOL 300 mg/semanales por AL MENOS 6-9 meses. 🡪CONTROL AL MES CON P. HEPÁTICAS. -Si exámenes Normales: Continuar tratamiento por 3 a 4 meses (4-5 meses en total) 🡪EVALUAR A LOS 6 MESES: A) Si crecimiento proximal ungueal sano: Control en APS. B) Si caso refractario a tratamiento: -descartar recontagio interfamiliar. - Sospecha patología diferencial: DERIVAR A DERMATOLOGÍA"
+        },
+        {
+            "patologia": "VERRUGAS",
+            "criterios": "DERIVAR EN CASO DE: - Fracaso en el tratamiento- Persistencia de verruga después de 6 meses de seguimiento (involución espontánea)",
+            "examenes": "EXÁMENES GENERALES: -Hemograma, Pruebas hepáticas y función renal.",
+            "observaciones": "MANEJO EN APS: A) VERRUGAS VULGARES Y PLANTARES: Uso de Ac. Salicílico+ Ac. Láctico (Duofilm® o Verrufilm®) nocturno por 3 meses, según arsenal farmacológico B) VERRUGAS PLANAS: Conducta expectante por 6 meses: casos autoresolutivos. 🡪CONTROL MENSUAL Derivación a dermatología a los 6 meses de manejo en el nivel primario."
+        },   {
+            "patologia": "ACROCORDONES",
+            "criterios": "- No corresponde derivación. Manejo en APS en cirugía menor",
+            "examenes": "",
+            "observaciones": "MANEJO EN APS: CIRUGIA MENOR AMBULATORIA EN CESFAM AMANECER (DSM Temuco) O PROPIA DEL ESTABLECIMIENTO"
+        },
+        {
+            "patologia": "PSORIASIS",
+            "criterios": "DERIVAR EN CASO DE: - Psoriasis severa afecta > 10% superficie corporal - Psoriasis con compromiso áreas significativas: cara, palmoplantar, genital - Psoriasis 5-10% superficie corporal que no responde a tratamiento tópico en APS EN CASO DE COMPROMISO ARTICULAR DERIVAR A REUMATOLOGIA *Considerar derivación a Hospital Digital en caso de duda diagnóstica o requerimiento de canasta farmacológica. https://interconsulta.minsal.cl/",
+            "examenes": "EXÁMENES GENERALES: -Hemograma, Pruebas hepáticas y función renal.",
+            "observaciones": "MANEJO EN APS: EDUCACION: naturaleza crónica en brotes, exacerba estrés rascado fármacos (B-bloqueador, iECA, litio, Corticoides sistémicos) OH y Tabaco HUMECTACION: uso 2 veces al dia idealmente en base a UREA 10% EXÁMENES: estudio sd metabólico asociado Manejo DEPRESION asociada frecuentemente CLOBETASOL 0.05% (ideal) o BETAMETASONA 0.05% uso 2 veces al dia por 6 a 8 semanas luego uso fines de semana en caso necesario Psoriasis que persistan con lesiones activas pero < 5 % Superficie corporal mantener el manejo en APS"
+        }
+        
+        ]
+    }

@@ -1,0 +1,92 @@
+{
+    "especialidad": "CIRUGÍA – UROLOGÍA INFANTIL",
+    "patologias":[
+{
+    "patologia": "FIMOSIS",
+    "criterios": "Cirugía pediátrica: Menor a 4 años si: ITU Balanopostitis a repetición (más de 2 episodios) Prepucitis 2 episodios o más Parafimosis Balanitis xerótica obliterante En caso de requerir estudio con cateterización uretral (ej: cistoureterografía) En caso de requerir cateterismo intermitente (ej: mielomeningocele) Mayores de 4 años.",
+    "examenes": "No requiere exámenes",
+    "observaciones": "Se realizará contra derivación en caso de no presentar fimosis o fimosis sin indicación quirúrgica."
+},
+{
+    "patologia": "CRIPTORQUÍDEA",
+    "criterios": "Cirugía Pediátrica: Mayor de 6 meses",
+    "examenes": "Ecografía Testicular si es viable según cartera de prestaciones, objetivar ubicación y tamaño testicular",
+    "observaciones": "Se realizará contra derivación en caso de no presentar criptorquídea y ser testículo retráctil, que se debe derivar según corresponda (protocolo)"
+},
+{
+    "patologia": "HERNIA UMBILICAL",
+    "criterios": "Cirugía Pediátrica: Mayor de 4 años Menor de 4 años sólo si: Hernia Atascada (derivar vía urgencia) Sintomático",
+    "examenes": "Ecografía partes blandas pared abdominal según cartera de prestaciones",
+    "observaciones": "Se realizará contra derivación en caso de no presentar hernia umbilical"
+},
+{
+    "patologia": "TESTÍCULO RETRÁCTIL",
+    "criterios": "Cirugía Pediátrica: Mayor de 4 años Persistir patología Asimetría testicular",
+    "examenes": "Ecografía testicular, según cartera de prestaciones, para objetivar tamaño testicular",
+    "observaciones": "Se realizará contra derivación de no presentar testículo retráctil"
+}
+,
+{
+    "patologia": "HERNIA INGUINAL",
+    "criterios": "Cirugía Pediátrica: Al momento del diagnóstico o sospecha clínica Aumento de volumen inguinal Atascamiento (derivar vía urgencia)",
+    "examenes": "Idealmente ecotomografía inguinotesticular (según cartera de prestaciones ) para objetivar patología",
+    "observaciones": "Se realizará contra derivación de no presentar hernia inguinal"
+}
+,
+{
+    "patologia": "ONICOCRIPTOSIS",
+    "criterios": "Cirugía Pediátrica: Menores de 10 años Sin infección activa (debe tratarse en red episodio agudo) Granuloma 2°",
+    "examenes": "Exámenes generales para descartar causa metabólica",
+    "observaciones": "Se realizará contra derivación de ser mayores de 10 años, ya que pueden ser resueltos en centros que cuenten con Cirugía menor ambulatoria. HHHA sólo cuenta con Cirugía mayor ambulatoria."
+}
+,
+{
+    "patologia": "PILOMATRIXOMA O LESIONES SUBDERMICAS",
+    "criterios": "Cirugía Pediátrica: Menores de 10 años Al momento del diagnóstico",
+    "examenes": "Ideal complementar estudio con ecotomografía de partes blandas según cartera de prestaciones",
+    "observaciones": "Se realizará contra derivación si: - Paciente no desea cirugía - Lesión pequeña que pudiese realizarse con anestesia local previo acuerdo paciente-padres con cirujano"
+}
+,
+{
+    "patologia": "TÓRAX EXCAVUM O CARINATUM",
+    "criterios": "Cirugía Pediátrica: Mayores de 10 años Repercusión hemodinámica de malformación",
+    "examenes": "Radiografía de tórax AP y Lat",
+    "observaciones": "Se realizará contra derivación si: - Sin indicación quirúrgica según criterio especialista en cirugía tórax pediátrico."
+}
+,
+{
+    "patologia": "HIPOSPADIAS",
+    "criterios": "Urología pediátrica: Menor a 10 meses si: Testículo no palpable bilateral Malformación reno vesical Sospecha de DDS (desorden del desarrollo sexual) -Desde 10 meses de edad.",
+    "examenes": "- Ecografía reno vesical según disponibilidad",
+    "observaciones": "Se realizará contra derivación si: - El paciente no presenta hipospadias - El paciente es derivado previo a la edad de derivación."
+}
+,
+{
+    "patologia": "MALFORMACIONES DE LAS VIAS URINARIAS",
+    "criterios": "Anomalías del parénquima renal: Hipoplasia/displasia renal Displasia renal multiquística Agenesia renal Alteraciones de la posición: Ectopia renal Anomalías de la fusión (riñón en herradura) Malformaciones de la vía urinaria: Reflujo ureterovesical Hidroureteronefrosis Estenosis de la unión pieloureteral Estenosis de la unión ureterovesical Válvulas de uretra posterior",
+    "examenes": "- Ecografía reno vesical según disponibilidad",
+    "observaciones": "Se realizará contra derivación si: - El paciente no presenta malformación de las vías urinarias"
+}
+,
+{
+    "patologia": "ENURESIS",
+    "criterios": "Sobre 5 años",
+    "examenes": "- Ecografía reno vesical según disponibilidad",
+    "observaciones": "Se realizará contra derivación si: El paciente no presenta enuresis"
+}
+,
+{
+    "patologia": "VEJIGA NEUROGÉNICA",
+    "criterios": "Al momento del diagnóstico",
+    "examenes": "- Ecografía reno vesical según disponibilidad",
+    "observaciones": "Evaluación por Neurocirujano, nefrología. "
+}
+,
+{
+    "patologia": "Disfunción detrusor y esfinteriana (vejiga hiperactiva)",
+    "criterios": "Sobre 6 años",
+    "examenes": "- Ecografía reno vesical según disponibilidad",
+    "observaciones": ""
+}
+                ]
+}

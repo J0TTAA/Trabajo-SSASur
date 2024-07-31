@@ -1,0 +1,34 @@
+
+{
+    "especialidad": "NEFROLOGÍA ADULTO",
+    "patologias":[
+        {
+            "patologia": "Enfermedad renal crónica (VFG< 60 mL/min/1,73m2 y/o alteración morfológica ecográfica, o en examen de orina)",
+            "criterios": "1. Pacientes en etapa 3a o 3b sólo si existen asociación a proteinuria (mayor a 1 gr/24 hrs y mayor de 3 grs/24 hrs en diabéticos, en 24 y/o hematuria glomerular (más de 10% glóbulos rojos dismórficos por campo). 2. Pacientes etapa 4 y 5. No derivar pacientes en etapa IV mayores de 85 años. Resto de los pacientes con ERC manejo por medicina interna de su nodo. Red de derivación: APS 🡪 Hosp. Digital  (Med. Interna) 🡪 Nefrología",
+            "examenes": "1. Registro de presión arterial 2. Creatinina plasmática 3. Orina completa 4. RAC y/o Albuminuria de 24 horas 5. Electrolitos plasmáticos 6. Si es diabético hemoglobina glicosilada y resultado de fondos de ojo (si lo tiene) 7. Perfil bioquímico. 8. Etapa V: marcadores virales hepatitis B, C y VIH y Ecografía renal según cartera de prestación del centro 9.- Validez de los exámenes 3 meses",
+            "observaciones": "Origen APS deriva a hospital digital policlínico de nefrología. Desde Hospital Digital, según corresponda, se redireccionará a Nefrología o Med. Interna. Link guía clínica IRC GES  https://diprece.minsal.cl/wrdprss_minsal/wp-content/uploads/2014/12/Insuficiencia-Renal-cronica-terminal.pdf"
+        },
+        {
+            "patologia": "Riñones poliquísticos",
+            "criterios": "Derivar si presenta más de 2 quistes en cada riñón) por ecografía en menores de 60 años con historia familiar Red de derivación: APS 🡪 Hosp. Digital  (Med. Interna) 🡪 Nefrología ",
+            "examenes": "1. Registro de presión arterial 2. Creatinina plasmática 3. Orina completa 4. Electrolitos plasmáticos 5. Ecografía renal",
+            "observaciones": "Origen APS deriva a hospital digital, policlínico de nefrología. Desde Hospital Digital, según corresponda, se redireccionará a Nefrología o Med. Interna.  "
+        },
+        {
+            "patologia": "Monorenos",
+            "criterios": "Derivar SOLO si VGF menor 45 ml y/o proteinuria mayor de 1 grs en 24 horas. Haber sido donante renal. Red de derivación: APS 🡪 Hosp. Digital  (Med. Interna) 🡪 Nefrología ",
+            "examenes": "1. Registro de presión arterial 2. Creatinina plasmática 3. Orina completa 4. RAC y/o Albuminuria 5. Electrolitos plasmáticos",
+            "observaciones": "Origen APS deriva a hospital digital policlínico de nefrología. Desde Hospital Digital, según corresponda, se redireccionará a Nefrología o Med. Interna."
+        },
+        {
+            "patologia": "Hipertensión arterial HTA resistente",
+            "criterios": "HTA de reciente comienzo o empeoramiento en menores de 30 años, o mayores de 60 años Red de derivación: APS 🡪 Hosp. Digital  (Med. Interna) 🡪 Nefrología",
+            "examenes": "1. Registro de presión arterial 2. Creatinina plasmática 3. Orina completa 4. Electrolitos plasmáticos 5. Doppler renal según cartera de prestaciones 6. Función tiroidea",
+            "observaciones": "Origen APS deriva a hospital digital policlínico de nefrología. Desde Hospital Digital, según corresponda, se redireccionará a Nefrología o Med. Interna."
+        },
+        {
+            "patologia": "- Hematuria macroscópica -Quistes renales complejos. Bosniak 2 o más -Tumores renales -Litiasis renal",
+            "criterios": "DERIVAR A UROLOGÍA",
+            "examenes": "",
+            "observaciones": "En el caso de litiasis renal, derivar a Nefrología solo si ha tenido más de tres episodios de cólicos renales objetivados "
+        }]}

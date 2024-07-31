@@ -1,0 +1,17 @@
+{
+    "especialidad": "POLICLÍNICO ADOLESCENCIA",
+    "patologias":[
+        {
+            "patologia": "TRASTORNO DE CONDUCTA ALIMENTARIA",
+            "criterios": "10-19 años. Adolescente cursando o con sospecha de presentar algún Trastorno Alimentario y de Ingesta (TAI) de acuerdo con DSM-V (Anorexia, Bulimia, Trastorno por Atracón, etc.)",
+            "examenes": "No requiere",
+            "observaciones": "Derivación por médico psiquiatra, nutrióloga, pediatra, ginecóloga infanto juvenil"
+          },
+          {
+            "patologia": "ADOLESCENTE CON PATOLOGÍA CRÓNICA",
+            "criterios": "12-19 años. Adolescente en control en policlínico de subespecialidad de pediatría por patología crónica, para apoyar adherencia a tratamiento y proceso de Transición",
+            "examenes": "No requiere",
+            "observaciones": "Derivación desde policlínicos de subespecialidad de pediatría (CDT)"
+          }
+                ]
+}

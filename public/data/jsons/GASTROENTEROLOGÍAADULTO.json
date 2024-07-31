@@ -1,0 +1,41 @@
+{
+    "especialidad": "GASTROENTEROLOGÍA ADULTO",
+    "patologias":[
+        {
+            "patologia": "DOLOR ABDMINAL CRÓNICO",
+            "criterios": "-Solo en casos de muy difícil manejo. -Presencia de síntomas de alarma. *Si cumple criterios de síndrome intestino irritable, identificar el predominio de síntomas, como diarrea o constipación, manejar con: - antiespasmódicos, énfasis medidas generales y alimentación. *Flujo de derivación: APS 🡪 Medicina Interna 🡪 Gastroenterología adulto",
+            "examenes": "Colonoscopía en mayores de 50, si rectorragia colonoscopía.",
+            "observaciones": "-"
+        },
+        {
+            "patologia": "CONSTIPACIÓN",
+            "criterios": "Solo en caso de fracaso a tratamiento médico en APS. *Flujo de derivación: APS 🡪 Medicina Interna 🡪 Gastroenterología adulto",
+            "examenes": "",
+            "observaciones": "Medidas generales: -Aumento de fibra, uso de laxantes como lactulosa o polietilenglicol de preferencia, se sugiere derivar después de 6 meses de tratamiento"
+        }, {
+            "patologia": "ENFERMEDAD POR REFLUJO GASTROESOFÁGICO",
+            "criterios": "Solo en casos refractarios a tratamiento:- IBP - Baja de peso y la elevación de la cabecera de la cama. *Flujo de derivación: APS 🡪 Medicina Interna 🡪 Gastroenterología adulto",
+            "examenes": "EDA en mayores de 40 años.",
+            "observaciones": "Pacientes < a 40 años no necesitan endoscopía para diagnóstico (si no hay síntomas de alarma) Se sugiere omeprazol 20 mg al día AM también cada 12 horas, por 8 semanas."
+        },
+        {
+            "patologia": "SINDROME ULCEROSO",
+            "criterios": "Solo en caso de fracaso a tratamiento inicial: -Omeprazol 20 mg -Medidas generales: evitar AINES, tabaco y exceso de alcohol *Flujo de derivación: APS 🡪 Medicina Interna 🡪 Gastroenterología adulto",
+            "examenes": "Endoscopía digestiva alta, sobre todo mayor de 40 años. (gestipon por programa de resolutividad en APS).",
+            "observaciones": ""
+        }, {
+            "patologia": "HEPATITIS AGUDA",
+            "criterios": "Alteración pruebas hepáticas: - BT>15 mg/dl - Tiempo de protrombina. *Flujo de derivación: APS 🡪 Medicina Interna 🡪 Gastroenterología adulto",
+            "examenes": "Hemograma, tiempo de protrombina, glicemia, Función renal, Función hepática, PCR. Según cartera de prestaciones: - IgM anti VHA - HBsAg - IgM anticore VHB - Anticuerpos anti-VHC - IgM anti VEB - IgM anti CMV",
+            "observaciones": "Control con ex lab, semanalmente las primeras dos semanas. Derivar vía urgencia en caso de signos de alarma: - Coagulopatía - Compromiso de consciencia - Vómitos a repetición"
+        },
+        {
+            "patologia": "ÚLCERA PEPTICA",
+            "criterios": "-CLÍNICA: Dolor epigástrico urente mayor en ayuna, o dolor que aumenta posterior a la ingesta de alimentos, Dispepsia. -Úlcera Gástrica, sin respuesta a tratamiento erradicación H. Pylori o úlcera no cicatrizada en EDA de control. -úlcera duodenal, H. pylori (-) *Flujo de derivación: APS 🡪 Medicina Interna 🡪 Gastroenterología adulto",
+            "examenes": "EDA con test de ureasa (gestión por programa de resolutividad en APS)",
+            "observaciones": "Si H. pylori (+) erradicar HP"
+        
+        }
+        
+        
+        ]}

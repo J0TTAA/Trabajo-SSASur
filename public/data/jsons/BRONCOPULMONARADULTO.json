@@ -1,0 +1,71 @@
+{
+    "especialidad": "BRONCOPULMONAR ADULTO",
+    "patologias":[
+        {
+            "patologia": "SAHOS",
+            "criterios": "Derivar con sospecha clínica",
+            "examenes": "Hemograma, exámenes generales, pruebas tiroideas. Radiografía de tórax PA-L Cuestionarios Epworth Stop Bang Circunferencia cervical",
+            "observaciones": "Interconsulta con datos completos Sin disponibilidad de estudio de la patología en la red Gestionar Poligrafia o Polisomnografia en lugar de origen por Med. Interna (Hospital nodo)"
+        },
+        {
+            "patologia": "ASMA",
+            "criterios": "Asma refractaria a tratamiento con buena adherencia y dosis altas de corticoides inhalados *Flujo de derivación: APS 🡪 Med. Interna 🡪Broncopulmonar",
+            "examenes": "- Espirometría Basal y post broncodilatador - Hemograma, IgE total - Radiografía de tórax PA-L  o TAC de Tórax sin contraste fase en inspiración y espiración SEGÚN CARTERA DE PRESTACIONES",
+            "observaciones": "- Interconsulta con datos completos - Evaluar técnica inhalatoria, adherencia y diagnósticos alternativos - Al momento de la consulta deben traer inhaladores y aerocámara"
+        },
+        {
+            "patologia": "HEMOPTISIS",
+            "criterios": "Paciente con clínica de hemoptisis. *Flujo de derivación: APS 🡪 Med. Interna 🡪Broncopulmonar. Según gravedad considerar derivación a Urgencia.",
+            "examenes": "- Exámenes generales (+ orina ) - Estudio TBC - Radiografía tórax o AngioTAC de tórax con protocolo de Aorta según disponibilidad.",
+            "observaciones": "- Interconsulta con datos completos - Según gravedad, debiese ser derivado a Servicio de Urgencia"
+        },
+        {
+            "patologia": "DERRAME PLEURAL",
+            "criterios": "Derivación desde APS a Med. Interna: Primer episodio de Derrame pleural. Evaluar derivación a urgencia según gravedad ó sospecha de empiema.",
+            "examenes": "Ex. Generales: Hemograma, VHS, PCR, Perfil bioquímico, Perfil lipídico, Ex. De orina, Albuminemia Rx Tórax AP y Lat.",
+            "observaciones": " "
+        },
+        {
+            "patologia": "DERRAME PLEURAL",
+            "criterios": "Derivación desde Med. Interna a Broncopulmonar: EXUDADO PLEURAL: sin diagnóstico luego de estudios básicos (estudio de líquido: citoquímico, citológico, cultivo, ADA, GeneXpert TB)",
+            "examenes": "-Examen líquido pleural: Citoquímico, citológico, LDH, ph, cultivo. -Exámenes generales. -TAC Tórax post  toracocentesis.",
+            "observaciones": "Interconsulta con datos completos"
+        },
+        {
+            "patologia": "TOS CRÓNICA",
+            "criterios": "Tos de más de 2 meses de evolución, habiendo descartado causas infecciosas que incluyen TBC y crónicas como Asma, EPOC, secuelas de TBC, RGE y Bronquiectasias *Flujo de derivación: APS 🡪 Med. Interna 🡪Broncopulmonar",
+            "examenes": "-Espirometría Basal y Post BD -Rx de Tórax ó Scanner de Tórax y Cavidades paranasales sin contraste, según cartera de prestaciones",
+            "observaciones": "- Interconsulta con datos completos"
+        },
+        {
+            "patologia": "EPOC",
+            "criterios": "EPOC GOLD C o D Con buena adherencia a tratamiento y con exacerbaciones *Flujo de derivación: APS 🡪 Med. Interna 🡪Broncopulmonar",
+            "examenes": "Hemograma Perfil Bioquímico Espirometría Basal y post BD Test de Marcha de 6 Minutos",
+            "observaciones": "Revisión de Técnica Inhalatoria Incentivar cese de tabaquismo si corresponde Traer Inhaladores y aerocámara"
+        },
+        {
+            "patologia": "Enfermedad Pulmonar difusa",
+            "criterios": "Sospecha de enfermedad pulmonar difusa *Flujo de derivación: APS 🡪 Med. Interna 🡪Broncopulmonar",
+            "examenes": "Hgma, VHS, PCR, glicemia, función renal y hepática. Exámenes Inmunológicos (ANA, ENA,FR, AntiCCP) según cartera de prestaciones TAC de Tórax sin contraste de alta resolución (Gestión por Med. Interna) Espirometría basal y post broncodilatador",
+            "observaciones": "Ante la sospecha Derivar Si además hay sospecha de Enfermedad de tejido conectivo derivar a Reumatología"
+        },
+        {
+            "patologia": "Nódulos Pulmonares",
+            "criterios": "Hallazgo de nódulo (s) pulmonar (es) en TAC de Tórax, que no corresponda a sospecha de Cáncer pulmonar según norma técnica Médico Administrativa (GES)",
+            "examenes": "Hgma, VHS, PCR, glicemia, función renal y hepática. TAC de Tórax sin contraste (Gestión por Med. Interna)",
+            "observaciones": "Interconsulta con datos clínicos completos Guía de práctica clínica Cáncer de pulmón 2018: https://diprece.minsal.cl/wp-content/uploads/2019/05/RE_GPC-C%C3%A1ncer-de-Pulm%C3%B3n_2018.pdf"
+        },
+        {
+            "patologia": "Bronquiectasias",
+            "criterios": "Paciente con diagnóstico de Bronquiectasias que a pesar de tratamiento persistan sintomáticos y/o complicaciones *Flujo de derivación: APS 🡪 Med. Interna 🡪Broncopulmonar",
+            "examenes": "Hgma, VHS, PCR, glicemia, función renal y hepática. Estudio TBC Espirometría Basal y post BD Cultivo corriente expectoración TAC Tórax sin contraste según cartera de prestaciones",
+            "observaciones": "Interconsulta con datos completos"
+        },
+        {
+            "patologia": "SOSPECHA DE TBC PULMONAR (QUE NO SE LOGRA CONFIRMAR EN APS)",
+            "criterios": "Antecedentes clínicos más imágenes que permiten sospechar patología pero no su confirmación *Flujo de derivación: APS🡪Broncopulmonar adulto (policlínico tuberculosis) sumado a correo electrónico a equipo gestor tbc.hhha@asur.cl",
+            "examenes": "- Hgma, VHS, PCR, glicemia, función renal y hepática. - Muestra bacteriológica (PCR) / BK (aunque sea negativa) -Rx. de Tórax",
+            "observaciones": "Casos confirmados de TBC, deben ser manejados en APS. *Norma Técnica para el control y la eliminación de la tuberculosis, año 2022"
+        }
+    ]
+}
