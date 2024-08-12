@@ -1,31 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Box, Grid, Button, Drawer, TextField, IconButton, Typography } from '@mui/material';
 import FilterComponent from '../components/FilterComponent';
 import ContactList from '../components/ContactList';
 import AddIcon from '@mui/icons-material/Add';
 
-const contactsData = [
-  { id: 1, name: 'Dr. Juan Gomez', specialty: 'Cardiologia', hospital: 'Hospital Padre Las Casas', cargo: 'Médico Controlador' },
-  { id: 2, name: 'Dr. Alvaro Gomez', specialty: 'Neurocirugia', hospital: 'Hospital Padre Las Casas', cargo: 'Médico Controlador' },
-  { id: 3, name: 'Dr. Esteban Gomez', specialty: 'Endocrinologia', hospital: 'Hospital Padre Las Casas', cargo: 'Médico Controlador' },
-  { id: 4, name: 'Dr. Pedro Gomez', specialty: 'Neurocirugia', hospital: 'Hospital Padre Las Casas', cargo: 'Médico Controlador' },
-];
-
 const ContactView = () => {
+  const [contactsData, setContactsData] = useState([]);
   const [filters, setFilters] = useState({ cargo: '', especialidad: '', establecimiento: '' });
-  const [filteredContacts, setFilteredContacts] = useState(contactsData);
+  const [filteredContacts, setFilteredContacts] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [newContact, setNewContact] = useState({ name: '', specialty: '', hospital: '', cargo: '' });
   const [editMode, setEditMode] = useState(false);
   const [editContact, setEditContact] = useState(null);
 
+  useEffect(() => {
+    const loadContacts = async () => {
+      try {
+        const response = await fetch('/public/contactosJson/contactosjson.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const jsonData = await response.json();
+        
+        const contacts = jsonData.map(contact => ({
+          id: contact.id,
+          name: `${contact.name[0]?.given.join(' ')} ${contact.name[0]?.family}`,
+          active: contact.active,
+          phone: contact.telecom?.find(t => t.system === 'phone')?.value || 'No disponible',
+          email: contact.telecom?.find(t => t.system === 'email')?.value || 'No disponible',
+          hospital: contact.address?.[0]?.city || 'No disponible',
+          cargo: contact.cargo
+        }));
+
+        setContactsData(contacts);
+        setFilteredContacts(contacts);
+      } catch (error) {
+        console.error('Error loading contacts:', error);
+      }
+    };
+  
+    loadContacts();
+  }, []);
+  
   const handleFilterChange = (key, value) => {
     setFilters({ ...filters, [key]: value });
   };
 
   const handleClearFilters = () => {
     setFilters({ cargo: '', especialidad: '', establecimiento: '' });
-    setFilteredContacts(contactsData); // Reset filtered contacts when clearing filters
+    setFilteredContacts(contactsData);
   };
 
   const handleApplyFilters = () => {
@@ -44,13 +67,18 @@ const ContactView = () => {
   };
 
   const handleAddContact = () => {
+    const newId = contactsData.length + 1;
+    const contact = { id: newId, ...newContact };
+
     if (editMode) {
-      setFilteredContacts(filteredContacts.map(contact =>
-        contact.id === editContact.id ? { ...editContact, ...newContact } : contact
-      ));
+      const updatedContacts = contactsData.map(ct => ct.id === editContact.id ? contact : ct);
+      setContactsData(updatedContacts);
+      setFilteredContacts(updatedContacts);
     } else {
-      setFilteredContacts([...filteredContacts, { id: filteredContacts.length + 1, ...newContact }]);
+      setContactsData([...contactsData, contact]);
+      setFilteredContacts([...filteredContacts, contact]);
     }
+    
     setNewContact({ name: '', specialty: '', hospital: '', cargo: '' });
     setEditMode(false);
     setDrawerOpen(false);
@@ -64,7 +92,9 @@ const ContactView = () => {
   };
 
   const handleDeleteContact = (id) => {
-    setFilteredContacts(filteredContacts.filter(contact => contact.id !== id));
+    const updatedContacts = contactsData.filter(contact => contact.id !== id);
+    setContactsData(updatedContacts);
+    setFilteredContacts(updatedContacts);
   };
 
   return (

@@ -1,0 +1,38 @@
+{
+    "resourceType": "Person",
+    "id": "cleaning1",
+    "text": {
+      "status": "generated",
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n <table>\n <tbody>\n <tr>\n <td>Name</td>\n <td>Lucia Ines <b>Martinez</b> (\"Lucia\")</td>\n </tr>\n <tr>\n <td>Address</td>\n <td>202 Cedar St, Coast City, FL, 33101</td>\n </tr>\n <tr>\n <td>Contacts</td>\n <td>Home: (555) 567-8901. Work: (555) 098-7654</td>\n </tr>\n </tbody>\n </table>\n </div>"
+    },
+    "active": true,
+    "name": [{
+      "use": "official",
+      "family": "Martinez",
+      "given": ["Lucia", "Ines"]
+    },
+    {
+      "use": "usual",
+      "given": ["Lucia"]
+    }],
+    "telecom": [{
+      "system": "phone",
+      "value": "(555) 098-7654",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "lucia.martinez@hospital.org",
+      "use": "work"
+    }],
+    "gender": "female",
+    "birthDate": "1992-11-22",
+    "address": [{
+      "use": "home",
+      "line": ["202 Cedar St"],
+      "city": "Coast City",
+      "state": "FL",
+      "postalCode": "33101"
+    }]
+  }
+  

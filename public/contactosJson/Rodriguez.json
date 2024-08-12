@@ -1,0 +1,38 @@
+{
+    "resourceType": "Person",
+    "id": "technician1",
+    "text": {
+      "status": "generated",
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n <table>\n <tbody>\n <tr>\n <td>Name</td>\n <td>Carlos Alberto <b>Rodriguez</b> (\"Carlos\")</td>\n </tr>\n <tr>\n <td>Address</td>\n <td>101 Birch St, Star City, TX, 73301</td>\n </tr>\n <tr>\n <td>Contacts</td>\n <td>Home: (555) 456-7890. Work: (555) 654-3210</td>\n </tr>\n </tbody>\n </table>\n </div>"
+    },
+    "active": true,
+    "name": [{
+      "use": "official",
+      "family": "Rodriguez",
+      "given": ["Carlos", "Alberto"]
+    },
+    {
+      "use": "usual",
+      "given": ["Carlos"]
+    }],
+    "telecom": [{
+      "system": "phone",
+      "value": "(555) 654-3210",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "carlos.rodriguez@hospital.org",
+      "use": "work"
+    }],
+    "gender": "male",
+    "birthDate": "1978-06-15",
+    "address": [{
+      "use": "home",
+      "line": ["101 Birch St"],
+      "city": "Star City",
+      "state": "TX",
+      "postalCode": "73301"
+    }]
+  }
+  

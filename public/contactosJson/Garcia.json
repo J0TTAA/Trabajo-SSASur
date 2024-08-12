@@ -1,0 +1,38 @@
+{
+    "resourceType": "Person",
+    "id": "nurse1",
+    "text": {
+      "status": "generated",
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n <table>\n <tbody>\n <tr>\n <td>Name</td>\n <td>Juan Carlos <b>Garcia</b> (\"Juan\")</td>\n </tr>\n <tr>\n <td>Address</td>\n <td>456 Oak St, Metropolis, NY, 10128</td>\n </tr>\n <tr>\n <td>Contacts</td>\n <td>Home: (555) 234-5678. Work: (555) 876-5432</td>\n </tr>\n </tbody>\n </table>\n </div>"
+    },
+    "active": true,
+    "name": [{
+      "use": "official",
+      "family": "Garcia",
+      "given": ["Juan", "Carlos"]
+    },
+    {
+      "use": "usual",
+      "given": ["Juan"]
+    }],
+    "telecom": [{
+      "system": "phone",
+      "value": "(555) 876-5432",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "juan.garcia@hospital.org",
+      "use": "work"
+    }],
+    "gender": "male",
+    "birthDate": "1985-07-25",
+    "address": [{
+      "use": "home",
+      "line": ["456 Oak St"],
+      "city": "Metropolis",
+      "state": "NY",
+      "postalCode": "10128"
+    }]
+  }
+  
