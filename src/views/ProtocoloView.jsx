@@ -33,25 +33,6 @@ const ProtocoloView = () => {
     }
   };
 
-  const hospitalData = [
-    {
-      nombre: 'Hospital A',
-      direccion: 'Dirección del Hospital A',
-      url: 'https://www.google.cl/maps/place/Hospital+Angol+Dr.+Mauricio+Heyermann/@-37.8005395,-72.6928234,17z',
-    },
-    {
-      nombre: 'Hospital B',
-      direccion: 'Dirección del Hospital B',
-      url: 'https://www.google.com/maps/embed?...',
-    },
-    {
-      nombre: 'Hospital C',
-      direccion: 'Dirección del Hospital C',
-      url: 'https://www.google.com/maps/embed?...',
-    },
-    // Agrega más objetos según sea necesario
-  ];
-
   const handleEspecialidadChange = (event) => {
     const especialidadSeleccionada = event.target.value;
     setSelectedEspecialidad(especialidadSeleccionada);
@@ -66,7 +47,6 @@ const ProtocoloView = () => {
     const patologiaData = patologias.find(patologia => patologia.patologia === patologiaSeleccionada);
     setPatologiaInfo(patologiaData);
 
-    // Ejemplo de URL para la especialidad BroncoPulmonarInfantil
     if (selectedEspecialidad === 'BroncoPulmonarInfantil') {
       setMapUrl('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.2672934011136!2d-46.65437748487383!3d-23.5987866846677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59e648bbf101%3A0xf59387e5b0e34090!2sHospital%20das%20Cl%C3%ADnicas%20da%20Faculdade%20de%20Medicina%20da%20Universidade%20de%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1615152025000!5m2!1sen!2sbr');
     } else {
@@ -76,7 +56,7 @@ const ProtocoloView = () => {
 
   return (
     <div>
-      <Box p={2}>
+      <Box p={2} sx={{ maxWidth: '1200px', margin: '0 auto' }}>
         <Typography variant="body2" color="textSecondary">
           Inicio &gt; Información Interconsultas &gt; Criterios de aceptación
         </Typography>
