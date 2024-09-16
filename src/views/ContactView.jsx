@@ -1,8 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
-import { Container, Box, Grid, Button, Drawer, TextField, IconButton, Typography } from '@mui/material';
+import { Container, Box, Grid, Button, Drawer, TextField, Typography } from '@mui/material';
 import FilterComponent from '../components/FilterComponent';
 import ContactList from '../components/ContactList';
-import AddIcon from '@mui/icons-material/Add';
+
 
 const ContactView = () => {
   const [contactsData, setContactsData] = useState([]);
@@ -120,13 +121,8 @@ const ContactView = () => {
           </Grid>
         </Grid>
       </Box>
-      <IconButton
-        color="primary"
-        onClick={() => setDrawerOpen(true)}
-        style={{ position: 'fixed', bottom: '16px', right: '16px' }}
-      >
-        <AddIcon />
-      </IconButton>
+     
+      
       <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <Box p={2} width={300}>
           <Typography variant="h6">{editMode ? 'Editar Contacto' : 'Agregar Nuevo Contacto'}</Typography>

@@ -21,6 +21,7 @@ const Header = () => {
         </Typography>
         <Button component={Link} to="/contactos" style={{ color: 'black' }}>Contactos</Button>
         <Button component={Link} to="/protocolos" style={{ color: 'black' }}>Protocolos</Button>
+        <Button component={Link} to="/Especialidades" style={{ color: 'black' }}>Especialidades</Button>
       </Toolbar>
     </AppBar>
   );
