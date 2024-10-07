@@ -1,18 +1,27 @@
+// src/components/ContactCard.jsx
 import React from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
 
-const ContactCard = ({ contact }) => {
-  return (
-    <Card variant="outlined" sx={{ mb: 2 }}>
-      <CardContent>
-        <Typography variant="h6">{contact.name}</Typography>
-        <Typography variant="body2">{contact.phone}</Typography>
-        <Typography variant="body2">{contact.email}</Typography>
-        <Typography variant="body2">{contact.hospital}</Typography>
-        <Typography variant="body2">{contact.cargo}</Typography>
-      </CardContent>
-    </Card>
-  );
+const ContactCard = ({ practitioner }) => {
+    const { id, name, identifier } = practitioner.resource;
+
+    const cardStyle = {
+        border: '1px solid #ccc',
+        borderRadius: '5px',
+        padding: '10px',
+        margin: '10px',
+        textAlign: 'left',
+        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+    };
+
+    return (
+        <div style={cardStyle}>
+            <h2>{name[0]?.text}</h2>
+            <p>ID: {id}</p>
+            <p>Identificador: {identifier[0]?.value}</p>
+            <p>Familia: {name[0]?.family}</p>
+            <p>Dado: {name[0]?.given.join(' ')}</p>
+        </div>
+    );
 };
 
 export default ContactCard;
