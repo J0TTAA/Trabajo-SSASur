@@ -19,10 +19,12 @@ const Contactos = () => {
   const [establecimiento, setEstablecimiento] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Estado para el modal de agregar contacto
+  // Estado para el modal de agregar/editar contacto
   const [open, setOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingContactId, setEditingContactId] = useState(null);
 
-  // Estado del formulario de nuevo contacto
+  // Estado del formulario de contacto
   const [newContact, setNewContact] = useState({
     familyName: '',
     givenName: '',
@@ -43,8 +45,9 @@ const Contactos = () => {
     const fetchPractitioners = async () => {
       try {
         const response = await axios.get('http://localhost:8080/fhir/Practitioner');
-        setPractitioners(response.data.entry.map(entry => entry.resource));
-        setFilteredPractitioners(response.data.entry.map(entry => entry.resource));
+        const practitionersData = response.data.entry.map(entry => entry.resource);
+        setPractitioners(practitionersData);
+        setFilteredPractitioners(practitionersData);
         setLoading(false);
       } catch (error) {
         setError('Error al cargar los datos');
@@ -88,8 +91,6 @@ const Contactos = () => {
         normalizeString(practitioner.name?.[0]?.given?.join(' ') || '').includes(normalizeString(searchQuery)) ||
         normalizeString(practitioner.name?.[0]?.family || '').includes(normalizeString(searchQuery))
       );
-    } else {
-      filtered = practitioners;
     }
 
     setFilteredPractitioners(filtered);
@@ -104,19 +105,59 @@ const Contactos = () => {
     setFilteredPractitioners(practitioners);
   };
 
-  // Manejo del modal de agregar contacto
+  // Manejo del modal de agregar/editar contacto
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setIsEditing(false);
+    setEditingContactId(null);
+    // Resetear el formulario
+    setNewContact({
+      familyName: '',
+      givenName: '',
+      identifier: '',
+      phone: '',
+      address: '',
+      city: '',
+      postalCode: '',
+      country: '',
+      gender: '',
+      birthDate: '',
+      qualification: '',
+      qualificationIssuer: ''
+    });
+  };
 
-  // Actualizar estado del formulario de nuevo contacto
+  // Actualizar estado del formulario de contacto
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewContact({ ...newContact, [name]: value });
   };
 
-  // Agregar nuevo contacto
+  // Abrir el modal en modo de edición
+  const handleEditClick = (contact) => {
+    setIsEditing(true);
+    setEditingContactId(contact.id);
+    setNewContact({
+      familyName: contact.name?.[0]?.family || '',
+      givenName: contact.name?.[0]?.given?.join(' ') || '',
+      identifier: contact.identifier?.[0]?.value || '',
+      phone: contact.telecom?.find(t => t.system === 'phone')?.value || '',
+      address: contact.address?.[0]?.line?.[0] || '',
+      city: contact.address?.[0]?.city || '',
+      postalCode: contact.address?.[0]?.postalCode || '',
+      country: contact.address?.[0]?.country || '',
+      gender: contact.gender || '',
+      birthDate: contact.birthDate || '',
+      qualification: contact.qualification?.[0]?.code?.text || '',
+      qualificationIssuer: contact.qualification?.[0]?.issuer?.display || ''
+    });
+    handleOpen();
+  };
+
+  // Agregar o editar contacto
   const handleSubmit = async () => {
-    const newPractitioner = {
+    const practitionerData = {
       resourceType: 'Practitioner',
       identifier: [{ use: 'official', value: newContact.identifier }],
       active: true,
@@ -141,7 +182,6 @@ const Contactos = () => {
       birthDate: newContact.birthDate,
       qualification: [
         {
-          identifier: [{ value: newContact.qualification }],
           code: { text: newContact.qualification },
           issuer: { display: newContact.qualificationIssuer }
         }
@@ -149,18 +189,35 @@ const Contactos = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/fhir/Practitioner', newPractitioner, {
-        headers: { 'Content-Type': 'application/fhir+json' }
-      });
-      
-      if (response.status === 201) {
-        const createdPractitioner = response.data;
-        setPractitioners([...practitioners, createdPractitioner]);
-        setFilteredPractitioners([...practitioners, createdPractitioner]);
-        handleClose();
+      if (isEditing && editingContactId) {
+        // Actualizar contacto existente
+        const response = await axios.put(`http://localhost:8080/fhir/Practitioner/${editingContactId}`, practitionerData, {
+          headers: { 'Content-Type': 'application/fhir+json' }
+        });
+
+        if (response.status === 200) {
+          const updatedPractitioner = response.data;
+          const updatedPractitioners = practitioners.map(p =>
+            p.id === updatedPractitioner.id ? updatedPractitioner : p
+          );
+          setPractitioners(updatedPractitioners);
+          setFilteredPractitioners(updatedPractitioners);
+        }
       } else {
-        console.error('Error al agregar el contacto');
+        // Agregar nuevo contacto
+        const response = await axios.post('http://localhost:8080/fhir/Practitioner', practitionerData, {
+          headers: { 'Content-Type': 'application/fhir+json' }
+        });
+
+        if (response.status === 201) {
+          const createdPractitioner = response.data;
+          const updatedPractitioners = [...practitioners, createdPractitioner];
+          setPractitioners(updatedPractitioners);
+          setFilteredPractitioners(updatedPractitioners);
+        }
       }
+
+      handleClose();
     } catch (error) {
       console.error('Error en la solicitud:', error);
     }
@@ -178,20 +235,6 @@ const Contactos = () => {
     }
   };
 
-  // Editar contacto
-  const handleEditContact = async (updatedContact) => {
-    try {
-      await axios.put(`http://localhost:8080/fhir/Practitioner/${updatedContact.id}`, updatedContact);
-      const updatedPractitioners = practitioners.map(p =>
-        p.id === updatedContact.id ? updatedContact : p
-      );
-      setPractitioners(updatedPractitioners);
-      setFilteredPractitioners(updatedPractitioners);
-    } catch (error) {
-      console.error('Error al editar el contacto:', error);
-    }
-  };
-
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>{error}</p>;
 
@@ -204,9 +247,9 @@ const Contactos = () => {
         Agregar Contacto
       </Button>
 
-      {/* Modal con el formulario de agregar contacto */}
+      {/* Modal con el formulario de agregar/editar contacto */}
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Agregar Nuevo Contacto</DialogTitle>
+        <DialogTitle>{isEditing ? 'Editar Contacto' : 'Agregar Nuevo Contacto'}</DialogTitle>
         <DialogContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -230,18 +273,33 @@ const Contactos = () => {
             <Grid item xs={6}>
               <TextField label="Código Postal" name="postalCode" value={newContact.postalCode} onChange={handleInputChange} fullWidth />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <TextField label="País" name="country" value={newContact.country} onChange={handleInputChange} fullWidth />
             </Grid>
             <Grid item xs={6}>
-              <TextField label="Género" name="gender" value={newContact.gender} onChange={handleInputChange} fullWidth select>
+              <TextField
+                label="Género"
+                name="gender"
+                value={newContact.gender}
+                onChange={handleInputChange}
+                fullWidth
+                select
+              >
                 <MenuItem value="male">Masculino</MenuItem>
                 <MenuItem value="female">Femenino</MenuItem>
                 <MenuItem value="other">Otro</MenuItem>
               </TextField>
             </Grid>
             <Grid item xs={6}>
-              <TextField label="Fecha de Nacimiento" name="birthDate" type="date" value={newContact.birthDate} onChange={handleInputChange} InputLabelProps={{ shrink: true }} fullWidth />
+              <TextField
+                label="Fecha de Nacimiento"
+                name="birthDate"
+                type="date"
+                value={newContact.birthDate}
+                onChange={handleInputChange}
+                InputLabelProps={{ shrink: true }}
+                fullWidth
+              />
             </Grid>
             <Grid item xs={6}>
               <TextField label="Calificación" name="qualification" value={newContact.qualification} onChange={handleInputChange} fullWidth />
@@ -253,7 +311,9 @@ const Contactos = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary">Cancelar</Button>
-          <Button onClick={handleSubmit} color="primary">Agregar</Button>
+          <Button onClick={handleSubmit} color="primary">
+            {isEditing ? 'Actualizar' : 'Agregar'}
+          </Button>
         </DialogActions>
       </Dialog>
 
@@ -312,7 +372,11 @@ const Contactos = () => {
         {/* Bloque de Contactos (Derecha) */}
         <Grid item xs={12} sm={8}>
           <h2>Lista de Contactos</h2>
-          <ContactList practitioners={filteredPractitioners} onDelete={handleDeleteContact} onEdit={handleEditContact} />
+          <ContactList
+            practitioners={filteredPractitioners}
+            onDelete={handleDeleteContact}
+            onEdit={handleEditClick}
+          />
         </Grid>
       </Grid>
     </Box>
