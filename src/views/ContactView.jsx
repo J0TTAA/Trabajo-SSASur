@@ -157,6 +157,7 @@ const Contactos = () => {
 
   // Agregar o editar contacto
   const handleSubmit = async () => {
+    // Datos del Practitioner para PUT o PATCH
     const practitionerData = {
       resourceType: 'Practitioner',
       identifier: [{ use: 'official', value: newContact.identifier }],
@@ -183,18 +184,37 @@ const Contactos = () => {
       qualification: [
         {
           code: { text: newContact.qualification },
-          issuer: { display: newContact.qualificationIssuer }
+          issuer: {
+            reference: 'Organization/1', // Ajusta según sea necesario
+            display: newContact.qualificationIssuer
+          }
         }
       ]
     };
-
+  
     try {
       if (isEditing && editingContactId) {
-        // Actualizar contacto existente
-        const response = await axios.put(`http://localhost:8080/fhir/Practitioner/${editingContactId}`, practitionerData, {
-          headers: { 'Content-Type': 'application/fhir+json' }
-        });
-
+        // Usar PATCH si deseas actualizar parcialmente los datos del contacto
+        const patchData = [
+          { op: "replace", path: "/name/0/family", value: newContact.familyName },
+          { op: "replace", path: "/name/0/given", value: newContact.givenName.split(' ') },
+          { op: "replace", path: "/telecom/0/value", value: newContact.phone },
+          { op: "replace", path: "/address/0/line/0", value: newContact.address },
+          { op: "replace", path: "/address/0/city", value: newContact.city },
+          { op: "replace", path: "/address/0/postalCode", value: newContact.postalCode },
+          { op: "replace", path: "/address/0/country", value: newContact.country },
+          { op: "replace", path: "/gender", value: newContact.gender },
+          { op: "replace", path: "/birthDate", value: newContact.birthDate },
+          { op: "replace", path: "/qualification/0/code/text", value: newContact.qualification },
+          { op: "replace", path: "/qualification/0/issuer/display", value: newContact.qualificationIssuer }
+        ];
+  
+        const response = await axios.patch(
+          `http://localhost:8080/fhir/Practitioner/${editingContactId}`,
+          patchData,
+          { headers: { 'Content-Type': 'application/json-patch+json' } }
+        );
+  
         if (response.status === 200) {
           const updatedPractitioner = response.data;
           const updatedPractitioners = practitioners.map(p =>
@@ -204,11 +224,13 @@ const Contactos = () => {
           setFilteredPractitioners(updatedPractitioners);
         }
       } else {
-        // Agregar nuevo contacto
-        const response = await axios.post('http://localhost:8080/fhir/Practitioner', practitionerData, {
-          headers: { 'Content-Type': 'application/fhir+json' }
-        });
-
+        // Para agregar o hacer PUT
+        const response = await axios.post(
+          'http://localhost:8080/fhir/Practitioner',
+          practitionerData,
+          { headers: { 'Content-Type': 'application/fhir+json' } }
+        );
+  
         if (response.status === 201) {
           const createdPractitioner = response.data;
           const updatedPractitioners = [...practitioners, createdPractitioner];
@@ -216,12 +238,13 @@ const Contactos = () => {
           setFilteredPractitioners(updatedPractitioners);
         }
       }
-
+  
       handleClose();
     } catch (error) {
-      console.error('Error en la solicitud:', error);
+      console.error('Error al procesar la solicitud:', error);
     }
   };
+  
 
   // Eliminar contacto
   const handleDeleteContact = async (id) => {
