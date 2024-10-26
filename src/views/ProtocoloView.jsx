@@ -19,15 +19,14 @@ const ProtocoloView = () => {
     fetchEspecialidades();
   }, []);
 
-  const fetchPatologias = async (especialidad) => {
+  const fetchPatologias = async () => {
     try {
-      const especialidadArchivo = especialidad.toLowerCase().replace(/[^a-zA-Z]/g, '');
-      const response = await fetch(`/public/data/jsons/${especialidadArchivo}.json`);
+      const response = await fetch('http://localhost:8080/fhir/Condition');
       if (!response.ok) {
         throw new Error('Failed to fetch patologias');
       }
       const data = await response.json();
-      setPatologias(data.patologias);
+      setPatologias(data.entry.map(entry => entry.resource));
     } catch (error) {
       console.error('Error fetching patologias:', error);
       setPatologias([]);
@@ -39,13 +38,13 @@ const ProtocoloView = () => {
     setSelectedEspecialidad(especialidadSeleccionada);
     setSelectedPatologia('');
     setPatologiaInfo(null);
-    fetchPatologias(especialidadSeleccionada);
+    fetchPatologias();
   };
 
   const handlePatologiaChange = (event) => {
     const patologiaSeleccionada = event.target.value;
     setSelectedPatologia(patologiaSeleccionada);
-    const patologiaData = patologias.find(patologia => patologia.patologia === patologiaSeleccionada);
+    const patologiaData = patologias.find(patologia => patologia.code.text === patologiaSeleccionada);
     setPatologiaInfo(patologiaData);
 
     if (selectedEspecialidad === 'BroncoPulmonarInfantil') {
@@ -90,8 +89,8 @@ const ProtocoloView = () => {
               disabled={!selectedEspecialidad}
             >
               {patologias.map((patologia, index) => (
-                <MenuItem key={index} value={patologia.patologia}>
-                  {patologia.patologia}
+                <MenuItem key={index} value={patologia.code.text}>
+                  {patologia.code.text}
                 </MenuItem>
               ))}
             </TextField>
@@ -104,13 +103,13 @@ const ProtocoloView = () => {
               <Card>
                 <CardContent>
                   <Typography variant="h6">
-                    Información sobre {patologiaInfo.patologia}
+                    Información sobre {patologiaInfo.code.text}
                   </Typography>
                   <Typography variant="subtitle1">
                     Criterios:
                   </Typography>
                   <Typography variant="body1">
-                    {patologiaInfo.criterios}
+                    {patologiaInfo.stage ? patologiaInfo.stage.summary.text : 'No disponible'}
                   </Typography>
                 </CardContent>
               </Card>
@@ -122,19 +121,7 @@ const ProtocoloView = () => {
                     Exámenes:
                   </Typography>
                   <Typography variant="body1">
-                    {patologiaInfo.examenes}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12}>
-              <Card>
-                <CardContent>
-                  <Typography variant="subtitle1">
-                    Observaciones:
-                  </Typography>
-                  <Typography variant="body1">
-                    {patologiaInfo.observaciones}
+                    {patologiaInfo.note ? patologiaInfo.note[0].text : 'No disponible'}
                   </Typography>
                 </CardContent>
               </Card>

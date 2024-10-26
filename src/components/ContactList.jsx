@@ -1,40 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Box, TextField } from '@mui/material';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Grid } from '@mui/material';
 import ContactCard from './ContactCard';
 
-const ContactList = ({ contacts, onEdit, onDelete }) => {
-  const [search, setSearch] = useState('');
-  const [filteredContacts, setFilteredContacts] = useState(contacts);
-
-  useEffect(() => {
-    let result = contacts;
-
-    if (search) {
-      result = result.filter(contact => contact.name.toLowerCase().includes(search.toLowerCase()));
-    }
-
-    setFilteredContacts(result);
-  }, [contacts, search]);
-
+const ContactList = ({ practitioners, onDelete, onEdit }) => {
   return (
-    <Box>
-      <TextField
-        label="Buscar..."
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        fullWidth
-        sx={{ mb: 2 }}
-      />
-      {filteredContacts.map(contact => (
-        <ContactCard
-          key={contact.id}
-          contact={contact}
-          onEdit={onEdit}
-          onDelete={onDelete}
-        />
+    <Grid container spacing={2}>
+      {practitioners.map(practitioner => (
+        <Grid item xs={12} sm={6} md={4} key={practitioner.id}>
+          <ContactCard 
+            practitioner={practitioner} 
+            onDelete={onDelete} 
+            onEdit={onEdit} 
+          />
+        </Grid>
       ))}
-    </Box>
+    </Grid>
   );
+};
+
+ContactList.propTypes = {
+  practitioners: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
 };
 
 export default ContactList;
