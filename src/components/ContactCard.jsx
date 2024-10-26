@@ -5,6 +5,7 @@ import { Card, CardContent, Typography, Button, Box } from '@mui/material';
 const ContactCard = ({ practitioner, onDelete, onEdit }) => {
   const { id, name, telecom, address, qualification } = practitioner;
 
+  // Obtener el teléfono
   const phone = telecom?.find(t => t.system === 'phone')?.value;
 
   // Manejadores de eventos para eliminar y editar
@@ -26,16 +27,15 @@ const ContactCard = ({ practitioner, onDelete, onEdit }) => {
           Teléfono: {phone || 'N/A'}
         </Typography>
         <Typography color="textSecondary">
-          Dirección: {address?.[0]?.line?.[0]}, {address?.[0]?.city}, {address?.[0]?.postalCode}, {address?.[0]?.country}
+          Establecimiento: {address?.[0]?.line?.[0]}, {address?.[0]?.city}, {address?.[0]?.postalCode}, {address?.[0]?.country}
         </Typography>
+        {/* Agregar género si está disponible */}
         <Typography color="textSecondary">
-          Especialidad: {qualification?.[0]?.code?.text || 'N/A'}
+          Género: {practitioner.gender || 'N/A'}
         </Typography>
+        {/* Mostrar la calificación, asumiendo que es el texto del primer código de cualificación */}
         <Typography color="textSecondary">
-          Certificación desde: {qualification?.[0]?.period?.start || 'N/A'}
-        </Typography>
-        <Typography color="textSecondary">
-          Emitido por: {qualification?.[0]?.issuer?.display || 'N/A'}
+          Cargo: {qualification?.[0]?.code?.text || 'N/A'}
         </Typography>
 
         {/* Botones de acciones */}
@@ -69,15 +69,10 @@ ContactCard.propTypes = {
       postalCode: PropTypes.string,
       country: PropTypes.string
     })),
+    gender: PropTypes.string, // Añadir género como propiedad opcional
     qualification: PropTypes.arrayOf(PropTypes.shape({
       code: PropTypes.shape({
         text: PropTypes.string
-      }),
-      period: PropTypes.shape({
-        start: PropTypes.string
-      }),
-      issuer: PropTypes.shape({
-        display: PropTypes.string
       })
     }))
   }).isRequired,

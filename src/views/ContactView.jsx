@@ -18,6 +18,7 @@ const Contactos = () => {
   const [especialidad, setEspecialidad] = useState('');
   const [establecimiento, setEstablecimiento] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [locations, setLocations] = useState([]);
 
   // Estado para el modal de agregar/editar contacto
   const [open, setOpen] = useState(false);
@@ -55,30 +56,44 @@ const Contactos = () => {
       }
     };
     fetchPractitioners();
+
+    const fetchLocations = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/fhir/Location');
+        const locationData = response.data.entry.map(entry => entry.resource);
+        setLocations(locationData);
+      } catch (error) {
+        console.error('Error al cargar los establecimientos:', error);
+      }
+    };
+    fetchLocations();
   }, []);
 
   // Aplicar filtros
   const applyFilters = () => {
     let filtered = practitioners;
-
+  
     if (cargo) {
       filtered = filtered.filter(practitioner => 
         practitioner.qualification?.some(q => q.code?.text?.toLowerCase().includes(cargo.toLowerCase()))
       );
     }
-
+  
     if (especialidad) {
       filtered = filtered.filter(practitioner => 
         practitioner.qualification?.some(q => q.code?.text?.toLowerCase().includes(especialidad.toLowerCase()))
       );
     }
-
+  
     if (establecimiento) {
       filtered = filtered.filter(practitioner => 
-        practitioner.address?.some(a => a.city?.toLowerCase().includes(establecimiento.toLowerCase()))
+        practitioner.address?.some(a => 
+          normalizeString(a.city || '').includes(normalizeString(establecimiento)) ||
+          a.line?.some(line => normalizeString(line).includes(normalizeString(establecimiento)))
+        )
       );
     }
-
+  
     setFilteredPractitioners(filtered);
   };
 
@@ -157,7 +172,6 @@ const Contactos = () => {
 
   // Agregar o editar contacto
   const handleSubmit = async () => {
-    // Datos del Practitioner para PUT o PATCH
     const practitionerData = {
       resourceType: 'Practitioner',
       identifier: [{ use: 'official', value: newContact.identifier }],
@@ -165,7 +179,7 @@ const Contactos = () => {
       name: [
         {
           family: newContact.familyName,
-          given: newContact.givenName.split(' ')
+          given: newContact.givenName ? newContact.givenName.split(' ') : []
         }
       ],
       telecom: [
@@ -194,20 +208,20 @@ const Contactos = () => {
   
     try {
       if (isEditing && editingContactId) {
-        // Usar PATCH si deseas actualizar parcialmente los datos del contacto
+        // Filtrar solo los campos con valores definidos
         const patchData = [
-          { op: "replace", path: "/name/0/family", value: newContact.familyName },
-          { op: "replace", path: "/name/0/given", value: newContact.givenName.split(' ') },
-          { op: "replace", path: "/telecom/0/value", value: newContact.phone },
-          { op: "replace", path: "/address/0/line/0", value: newContact.address },
-          { op: "replace", path: "/address/0/city", value: newContact.city },
-          { op: "replace", path: "/address/0/postalCode", value: newContact.postalCode },
-          { op: "replace", path: "/address/0/country", value: newContact.country },
-          { op: "replace", path: "/gender", value: newContact.gender },
-          { op: "replace", path: "/birthDate", value: newContact.birthDate },
-          { op: "replace", path: "/qualification/0/code/text", value: newContact.qualification },
-          { op: "replace", path: "/qualification/0/issuer/display", value: newContact.qualificationIssuer }
-        ];
+          newContact.familyName && { op: "replace", path: "/name/0/family", value: newContact.familyName },
+          newContact.givenName && { op: "replace", path: "/name/0/given", value: newContact.givenName.split(' ') },
+          newContact.phone && { op: "replace", path: "/telecom/0/value", value: newContact.phone },
+          newContact.address && { op: "replace", path: "/address/0/line/0", value: newContact.address },
+          newContact.city && { op: "replace", path: "/address/0/city", value: newContact.city },
+          newContact.postalCode && { op: "replace", path: "/address/0/postalCode", value: newContact.postalCode },
+          newContact.country && { op: "replace", path: "/address/0/country", value: newContact.country },
+          newContact.gender && { op: "replace", path: "/gender", value: newContact.gender },
+          newContact.birthDate && { op: "replace", path: "/birthDate", value: newContact.birthDate },
+          newContact.qualification && { op: "replace", path: "/qualification/0/code/text", value: newContact.qualification },
+          newContact.qualificationIssuer && { op: "replace", path: "/qualification/0/issuer/display", value: newContact.qualificationIssuer }
+        ].filter(Boolean); // Elimina los campos sin valor definido
   
         const response = await axios.patch(
           `http://localhost:8080/fhir/Practitioner/${editingContactId}`,
@@ -224,7 +238,7 @@ const Contactos = () => {
           setFilteredPractitioners(updatedPractitioners);
         }
       } else {
-        // Para agregar o hacer PUT
+        // Para agregar un nuevo Practitioner usando POST
         const response = await axios.post(
           'http://localhost:8080/fhir/Practitioner',
           practitionerData,
@@ -244,6 +258,7 @@ const Contactos = () => {
       console.error('Error al procesar la solicitud:', error);
     }
   };
+  
   
 
   // Eliminar contacto
@@ -281,24 +296,36 @@ const Contactos = () => {
             <Grid item xs={12}>
               <TextField label="Nombres" name="givenName" value={newContact.givenName} onChange={handleInputChange} fullWidth />
             </Grid>
-            <Grid item xs={12}>
-              <TextField label="Número de Identificación" name="identifier" value={newContact.identifier} onChange={handleInputChange} fullWidth />
-            </Grid>
+           
             <Grid item xs={12}>
               <TextField label="Teléfono" name="phone" value={newContact.phone} onChange={handleInputChange} fullWidth />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Dirección" name="address" value={newContact.address} onChange={handleInputChange} fullWidth />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField label="Ciudad" name="city" value={newContact.city} onChange={handleInputChange} fullWidth />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField label="Código Postal" name="postalCode" value={newContact.postalCode} onChange={handleInputChange} fullWidth />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField label="País" name="country" value={newContact.country} onChange={handleInputChange} fullWidth />
-            </Grid>
+      <TextField
+        select
+        label="Establecimiento"
+        value={newContact.city}
+        onChange={(e) => setNewContact({ ...newContact, city: e.target.value })}
+        fullWidth
+        SelectProps={{
+          MenuProps: {
+            PaperProps: {
+              sx: {
+                maxHeight: 200, // Altura máxima del menú desplegable
+                width: 250      // Ancho del menú desplegable
+              },
+            },
+          },
+        }}
+      >
+        <MenuItem value="">Selecciona un Establecimiento</MenuItem>
+        {locations.map(location => (
+          <MenuItem key={location.id} value={location.name}>
+            {location.name}
+          </MenuItem>
+        ))}
+      </TextField>
+    </Grid>
             <Grid item xs={6}>
               <TextField
                 label="Género"
@@ -314,22 +341,30 @@ const Contactos = () => {
               </TextField>
             </Grid>
             <Grid item xs={6}>
-              <TextField
-                label="Fecha de Nacimiento"
-                name="birthDate"
-                type="date"
-                value={newContact.birthDate}
-                onChange={handleInputChange}
-                InputLabelProps={{ shrink: true }}
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField label="Calificación" name="qualification" value={newContact.qualification} onChange={handleInputChange} fullWidth />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField label="Emisor de la Calificación" name="qualificationIssuer" value={newContact.qualificationIssuer} onChange={handleInputChange} fullWidth />
-            </Grid>
+  <TextField
+    select
+    label="Cargo"
+    name="qualification"
+    value={newContact.qualification}
+    onChange={handleInputChange}
+    fullWidth
+    SelectProps={{
+      MenuProps: {
+        PaperProps: {
+          sx: {
+            maxHeight: 200, // Altura máxima del menú desplegable
+            width: 250      // Ancho del menú desplegable
+          },
+        },
+      },
+    }}
+  >
+    <MenuItem value="">Selecciona un Cargo</MenuItem>
+    <MenuItem value="Médico">Médico</MenuItem>
+    <MenuItem value="Contralor">Contralor</MenuItem>
+    <MenuItem value="Priorizador">Priorizador</MenuItem>
+  </TextField>
+</Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
@@ -357,22 +392,33 @@ const Contactos = () => {
                   <MenuItem value="Priorizador">Priorizador</MenuItem>
                 </TextField>
               </Grid>
-
+              
               <Grid item xs={12}>
-                <TextField select label="Especialidad" value={especialidad} onChange={(e) => setEspecialidad(e.target.value)} fullWidth>
-                  <MenuItem value="">Especialidad</MenuItem>
-                  <MenuItem value="Cardiología">Cardiología</MenuItem>
-                  <MenuItem value="Ginecología">Ginecología</MenuItem>
-                </TextField>
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField select label="Establecimiento" value={establecimiento} onChange={(e) => setEstablecimiento(e.target.value)} fullWidth>
-                  <MenuItem value="">Establecimiento</MenuItem>
-                  <MenuItem value="Star City">Star City</MenuItem>
-                </TextField>
-              </Grid>
-
+  <TextField
+    select
+    label="Establecimiento"
+    value={establecimiento}
+    onChange={(e) => setEstablecimiento(e.target.value)}
+    fullWidth
+    SelectProps={{
+      MenuProps: {
+        PaperProps: {
+          sx: {
+            maxHeight: 200, // Altura máxima del menú desplegable
+            width: 250,     // Ancho del menú desplegable
+          },
+        },
+      },
+    }}
+  >
+    <MenuItem value="">Establecimiento</MenuItem>
+    {locations.map(location => (
+      <MenuItem key={location.id} value={location.name}>
+        {location.name}
+      </MenuItem>
+    ))}
+  </TextField>
+</Grid>
               <Grid item xs={12}>
                 <TextField label="Buscar" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} fullWidth />
               </Grid>
