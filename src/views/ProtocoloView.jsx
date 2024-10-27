@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { Typography, Box, Grid, TextField, MenuItem, Card, CardContent } from '@mui/material';
 
@@ -39,6 +38,9 @@ const ProtocoloView = () => {
     setSelectedPatologia('');
     setPatologiaInfo(null);
     fetchPatologias();
+
+    // Establecer la misma URL de mapa para todas las especialidades
+    setMapUrl('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.2672934011136!2d-46.65437748487383!3d-23.5987866846677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59e648bbf101%3A0xf59387e5b0e34090!2sHospital%20das%20Cl%C3%ADnicas%20da%20Faculdade%20de%20Medicina%20da%20Universidade%20de%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1615152025000!5m2!1sen!2sbr');
   };
 
   const handlePatologiaChange = (event) => {
@@ -46,12 +48,6 @@ const ProtocoloView = () => {
     setSelectedPatologia(patologiaSeleccionada);
     const patologiaData = patologias.find(patologia => patologia.code.text === patologiaSeleccionada);
     setPatologiaInfo(patologiaData);
-
-    if (selectedEspecialidad === 'BroncoPulmonarInfantil') {
-      setMapUrl('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.2672934011136!2d-46.65437748487383!3d-23.5987866846677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59e648bbf101%3A0xf59387e5b0e34090!2sHospital%20das%20Cl%C3%ADnicas%20da%20Faculdade%20de%20Medicina%20da%20Universidade%20de%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1615152025000!5m2!1sen!2sbr');
-    } else {
-      setMapUrl('');
-    }
   };
 
   return (
@@ -109,7 +105,10 @@ const ProtocoloView = () => {
                     Criterios:
                   </Typography>
                   <Typography variant="body1">
-                    {patologiaInfo.stage ? patologiaInfo.stage.summary.text : 'No disponible'}
+                    {/* Mostrar criterios */}
+                    {patologiaInfo.stage && patologiaInfo.stage.length > 0 && patologiaInfo.stage[0].summary && patologiaInfo.stage[0].summary.text
+                      ? patologiaInfo.stage[0].summary.text
+                      : 'Criterios no disponibles'}
                   </Typography>
                 </CardContent>
               </Card>
@@ -121,7 +120,10 @@ const ProtocoloView = () => {
                     Exámenes:
                   </Typography>
                   <Typography variant="body1">
-                    {patologiaInfo.note ? patologiaInfo.note[0].text : 'No disponible'}
+                    {/* Mostrar exámenes */}
+                    {patologiaInfo.note && patologiaInfo.note.length > 0 && patologiaInfo.note[0].text
+                      ? patologiaInfo.note[0].text
+                      : 'Exámenes no disponibles'}
                   </Typography>
                 </CardContent>
               </Card>
