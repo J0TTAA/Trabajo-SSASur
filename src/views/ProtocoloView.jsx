@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Grid, TextField, MenuItem, Card, CardContent } from '@mui/material';
+import { Typography, Box, Grid, TextField, MenuItem, Card, CardContent, FormControl, InputLabel, Select } from '@mui/material';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 const ProtocoloView = () => {
   const [especialidades, setEspecialidades] = useState([]);
@@ -7,40 +10,54 @@ const ProtocoloView = () => {
   const [selectedEspecialidad, setSelectedEspecialidad] = useState('');
   const [selectedPatologia, setSelectedPatologia] = useState('');
   const [patologiaInfo, setPatologiaInfo] = useState(null);
-  const [mapUrl, setMapUrl] = useState('');
+  const [ubicaciones, setUbicaciones] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
+  // Configuración del icono del marcador
+  delete L.Icon.Default.prototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+  });
 
   useEffect(() => {
     const fetchEspecialidades = () => {
-      const especialidades = ['Ginecologia', 'CardiologíaAdulto', 'BroncoPulmonarInfantil', 'Otorrinolaringologia'];
+      const especialidades = ['Ginecología', 'Cardiología Adulto', 'Broncopulmonar Infantil', 'Otorrinolaringología'];
       setEspecialidades(especialidades);
     };
 
+    const fetchUbicaciones = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/fhir/Location');
+        const data = await response.json();
+        const ubicaciones = data.entry.map(item => ({
+          id: item.resource.id,
+          name: item.resource.name || 'Nombre no disponible',
+        }));
+        setUbicaciones(ubicaciones);
+      } catch (error) {
+        console.error('Error fetching ubicaciones:', error);
+      }
+    };
+
     fetchEspecialidades();
+    fetchUbicaciones();
   }, []);
 
   const fetchPatologias = async () => {
     try {
       const response = await fetch('http://localhost:8080/fhir/Condition');
-      if (!response.ok) {
-        throw new Error('Failed to fetch patologias');
-      }
       const data = await response.json();
       setPatologias(data.entry.map(entry => entry.resource));
     } catch (error) {
       console.error('Error fetching patologias:', error);
-      setPatologias([]);
     }
   };
 
   const handleEspecialidadChange = (event) => {
-    const especialidadSeleccionada = event.target.value;
-    setSelectedEspecialidad(especialidadSeleccionada);
-    setSelectedPatologia('');
-    setPatologiaInfo(null);
+    setSelectedEspecialidad(event.target.value);
     fetchPatologias();
-
-    // Establecer la misma URL de mapa para todas las especialidades
-    setMapUrl('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.2672934011136!2d-46.65437748487383!3d-23.5987866846677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59e648bbf101%3A0xf59387e5b0e34090!2sHospital%20das%20Cl%C3%ADnicas%20da%20Faculdade%20de%20Medicina%20da%20Universidade%20de%20S%C3%A3o%20Paulo!5e0!3m2!1sen!2sbr!4v1615152025000!5m2!1sen!2sbr');
   };
 
   const handlePatologiaChange = (event) => {
@@ -50,36 +67,48 @@ const ProtocoloView = () => {
     setPatologiaInfo(patologiaData);
   };
 
+  const handleUbicacionChange = async (event) => {
+    const ubicacionId = event.target.value;
+
+    try {
+      const response = await fetch(`http://localhost:8080/fhir/Location/${ubicacionId}`);
+      const locationData = await response.json();
+
+      const geolocationExtension = locationData.extension?.find(ext => ext.url === "http://hl7.org/fhir/StructureDefinition/geolocation");
+      const latitude = geolocationExtension?.extension?.find(ext => ext.url === "latitude")?.valueDecimal;
+      const longitude = geolocationExtension?.extension?.find(ext => ext.url === "longitude")?.valueDecimal;
+
+      if (latitude && longitude) {
+        setSelectedLocation({ latitude, longitude, name: locationData.name });
+      }
+    } catch (error) {
+      console.error('Error fetching location data:', error);
+    }
+  };
+
   return (
     <div>
       <Box p={2} sx={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <Typography variant="body2" color="textSecondary">
-          Inicio &gt; Información Interconsultas &gt; Criterios de aceptación
-        </Typography>
+        <Typography variant="h6">Criterios de Aceptación</Typography>
 
         <Grid container spacing={2} alignItems="center" style={{ marginTop: '16px' }}>
           <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              label="Especialidad"
-              fullWidth
-              variant="outlined"
-              value={selectedEspecialidad}
-              onChange={handleEspecialidadChange}
-            >
-              {especialidades.map((especialidad, index) => (
-                <MenuItem key={index} value={especialidad}>
-                  {especialidad}
-                </MenuItem>
-              ))}
-            </TextField>
+            <FormControl fullWidth>
+              <InputLabel>Especialidad</InputLabel>
+              <Select value={selectedEspecialidad} onChange={handleEspecialidadChange}>
+                {especialidades.map((especialidad, index) => (
+                  <MenuItem key={index} value={especialidad}>
+                    {especialidad}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
               select
               label="Patología"
               fullWidth
-              variant="outlined"
               value={selectedPatologia}
               onChange={handlePatologiaChange}
               disabled={!selectedEspecialidad}
@@ -98,57 +127,48 @@ const ProtocoloView = () => {
             <Grid item xs={12}>
               <Card>
                 <CardContent>
-                  <Typography variant="h6">
-                    Información sobre {patologiaInfo.code.text}
-                  </Typography>
-                  <Typography variant="subtitle1">
-                    Criterios:
+                  <Typography variant="h6">Información sobre {patologiaInfo.code.text}</Typography>
+                  {/* Mostrar criterios, observaciones y exámenes */}
+                  <Typography variant="body1">
+                    Observaciones: {patologiaInfo.note?.find(note => note.text === 'observaciones')?.text || 'No disponibles'}
                   </Typography>
                   <Typography variant="body1">
-                    {/* Mostrar criterios */}
-                    {patologiaInfo.stage && patologiaInfo.stage.length > 0 && patologiaInfo.stage[0].summary && patologiaInfo.stage[0].summary.text
-                      ? patologiaInfo.stage[0].summary.text
-                      : 'Criterios no disponibles'}
+                    Criterios: {patologiaInfo.note?.find(note => note.text === 'criterios')?.text || 'No disponibles'}
+                  </Typography>
+                  <Typography variant="body1">
+                    Exámenes: {patologiaInfo.note?.find(note => note.text === 'examenes')?.text || 'No disponibles'}
                   </Typography>
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12}>
-              <Card>
-                <CardContent>
-                  <Typography variant="subtitle1">
-                    Exámenes:
-                  </Typography>
-                  <Typography variant="body1">
-                    {/* Mostrar exámenes */}
-                    {patologiaInfo.note && patologiaInfo.note.length > 0 && patologiaInfo.note[0].text
-                      ? patologiaInfo.note[0].text
-                      : 'Exámenes no disponibles'}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            {mapUrl && (
-              <Grid item xs={12}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="h6">Hospitales</Typography>
-                    
-                    <iframe
-                      src={mapUrl}
-                      width="100%"
-                      height="450"
-                      frameBorder="0"
-                      style={{ border: 0 }}
-                      allowFullScreen=""
-                      aria-hidden="false"
-                      tabIndex="0"
-                    />
-                  </CardContent>
-                </Card>
-              </Grid>
-            )}
           </Grid>
+        )}
+
+        <Grid container spacing={2} style={{ marginTop: '16px' }}>
+          <Grid item xs={12}>
+            <FormControl fullWidth>
+              <InputLabel>Ubicación</InputLabel>
+              <Select onChange={handleUbicacionChange}>
+                {ubicaciones.map(ubicacion => (
+                  <MenuItem key={ubicacion.id} value={ubicacion.id}>
+                    {ubicacion.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+
+        {selectedLocation && (
+          <MapContainer center={[selectedLocation.latitude, selectedLocation.longitude]} zoom={15} style={{ height: '400px', width: '100%', marginTop: '20px' }}>
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker position={[selectedLocation.latitude, selectedLocation.longitude]}>
+              <Popup>{selectedLocation.name}</Popup>
+            </Marker>
+          </MapContainer>
         )}
       </Box>
     </div>
