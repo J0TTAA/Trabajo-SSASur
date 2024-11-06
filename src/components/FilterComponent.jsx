@@ -2,21 +2,12 @@ import React, { useState } from "react";
 
 const AddPractitionerForm = () => {
   const [formData, setFormData] = useState({
-    identifier: "",
     familyName: "",
     givenName1: "",
-    givenName2: "",
     phone: "",
     gender: "",
-    birthDate: "",
     addressLine: "",
-    city: "",
-    postalCode: "",
-    country: "",
-    qualificationCode: "",
-    issuerOrganization: "",
-    issuerDisplay: "",
-    qualificationStart: ""
+    qualificationCode: ""
   });
 
   const handleChange = (e) => {
@@ -31,41 +22,22 @@ const AddPractitionerForm = () => {
 
     const practitionerData = {
       resourceType: "Practitioner",
-      identifier: [{
-        use: "official",
-        value: formData.identifier
-      }],
       active: true,
       name: [{
         family: formData.familyName,
-        given: [formData.givenName1, formData.givenName2]
+        given: [formData.givenName1]
       }],
       telecom: [{
         system: "phone",
         value: formData.phone
       }],
       gender: formData.gender,
-      birthDate: formData.birthDate,
-      deceasedBoolean: false,
       address: [{
-        line: [formData.addressLine],
-        city: formData.city,
-        postalCode: formData.postalCode,
-        country: formData.country
+        line: [formData.addressLine]
       }],
       qualification: [{
-        identifier: [{
-          value: formData.qualificationCode
-        }],
         code: {
           text: formData.qualificationCode
-        },
-        period: {
-          start: formData.qualificationStart
-        },
-        issuer: {
-          reference: formData.issuerOrganization,
-          display: formData.issuerDisplay
         }
       }]
     };
@@ -92,28 +64,36 @@ const AddPractitionerForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Identifier: </label>
-        <input type="text" name="identifier" value={formData.identifier} onChange={handleChange} required />
-      </div>
-
-      <div>
         <label>Family Name: </label>
-        <input type="text" name="familyName" value={formData.familyName} onChange={handleChange} required />
+        <input
+          type="text"
+          name="familyName"
+          value={formData.familyName}
+          onChange={handleChange}
+          required
+        />
       </div>
 
       <div>
-        <label>Given Name 1: </label>
-        <input type="text" name="givenName1" value={formData.givenName1} onChange={handleChange} required />
-      </div>
-
-      <div>
-        <label>Given Name 2: </label>
-        <input type="text" name="givenName2" value={formData.givenName2} onChange={handleChange} />
+        <label>Given Name: </label>
+        <input
+          type="text"
+          name="givenName1"
+          value={formData.givenName1}
+          onChange={handleChange}
+          required
+        />
       </div>
 
       <div>
         <label>Phone: </label>
-        <input type="text" name="phone" value={formData.phone} onChange={handleChange} required />
+        <input
+          type="text"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+        />
       </div>
 
       <div>
@@ -126,48 +106,25 @@ const AddPractitionerForm = () => {
       </div>
 
       <div>
-        <label>Birth Date: </label>
-        <input type="date" name="birthDate" value={formData.birthDate} onChange={handleChange} required />
-      </div>
-
-      <div>
         <label>Address Line: </label>
-        <input type="text" name="addressLine" value={formData.addressLine} onChange={handleChange} required />
-      </div>
-
-      <div>
-        <label>City: </label>
-        <input type="text" name="city" value={formData.city} onChange={handleChange} required />
-      </div>
-
-      <div>
-        <label>Postal Code: </label>
-        <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} required />
-      </div>
-
-      <div>
-        <label>Country: </label>
-        <input type="text" name="country" value={formData.country} onChange={handleChange} required />
+        <input
+          type="text"
+          name="addressLine"
+          value={formData.addressLine}
+          onChange={handleChange}
+          required
+        />
       </div>
 
       <div>
         <label>Qualification Code: </label>
-        <input type="text" name="qualificationCode" value={formData.qualificationCode} onChange={handleChange} required />
-      </div>
-
-      <div>
-        <label>Issuer Organization Reference: </label>
-        <input type="text" name="issuerOrganization" value={formData.issuerOrganization} onChange={handleChange} required />
-      </div>
-
-      <div>
-        <label>Issuer Display Name: </label>
-        <input type="text" name="issuerDisplay" value={formData.issuerDisplay} onChange={handleChange} required />
-      </div>
-
-      <div>
-        <label>Qualification Start Date: </label>
-        <input type="date" name="qualificationStart" value={formData.qualificationStart} onChange={handleChange} required />
+        <input
+          type="text"
+          name="qualificationCode"
+          value={formData.qualificationCode}
+          onChange={handleChange}
+          required
+        />
       </div>
 
       <button type="submit">Add Practitioner</button>

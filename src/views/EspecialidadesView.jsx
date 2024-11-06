@@ -1,137 +1,177 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, Box, Grid, TextField, MenuItem, Card, CardContent } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import { Typography, Grid, Select, MenuItem, FormControl, InputLabel, Box } from '@mui/material';
 
 const EspecialidadesView = () => {
   const [especialidades, setEspecialidades] = useState([]);
-  const [ubicaciones, setUbicaciones] = useState([]);
   const [selectedEspecialidad, setSelectedEspecialidad] = useState('');
-  const [selectedUbicacion, setSelectedUbicacion] = useState('');
-  const [ubicacionInfo, setUbicacionInfo] = useState(null);
+  const [ubicaciones, setUbicaciones] = useState([]);
+  const [especialidadesPorUbicacion, setEspecialidadesPorUbicacion] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
+  // Configuración del icono del marcador
+  delete L.Icon.Default.prototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+  });
 
   useEffect(() => {
-    const fetchEspecialidades = () => {
-      const especialidades = ['Ginecologia', 'Cardiología Adulto', 'BroncoPulmonar Infantil', 'Otorrinolaringologia'];
-      setEspecialidades(especialidades);
+    const fetchEspecialidades = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/fhir/HealthcareService');
+        const data = await response.json();
+        const servicios = data.entry || [];
+
+        const especialidadesUnicas = [...new Set(
+          servicios.map(item => item.resource.specialty?.[0]?.coding?.[0]?.display).filter(Boolean)
+        )];
+        setEspecialidades(especialidadesUnicas);
+      } catch (error) {
+        console.error('Error fetching especialidades:', error);
+      }
     };
 
-    const fetchUbicaciones = () => {
-      const ubicaciones = ['Hospital Clínico', 'Centro de Salud Norte', 'Hospital Central', 'Clínica San José'];
-      setUbicaciones(ubicaciones);
+    const fetchUbicaciones = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/fhir/Location');
+        const data = await response.json();
+        const ubicaciones = data.entry || [];
+
+        const ubicacionesMapeadas = ubicaciones.map(item => ({
+          id: item.resource.id,
+          name: item.resource.name || 'Nombre no disponible',
+        }));
+        setUbicaciones(ubicacionesMapeadas);
+      } catch (error) {
+        console.error('Error fetching ubicaciones:', error);
+      }
     };
 
     fetchEspecialidades();
     fetchUbicaciones();
   }, []);
 
-  const handleEspecialidadChange = (event) => {
+  const extraerIdsDeUbicaciones = (json) => {
+    const regex = /Location\/(\d+)/g;
+    let match;
+    const ids = [];
+    while ((match = regex.exec(json)) !== null) ids.push(match[1]);
+    return ids;
+  };
+
+  const obtenerUbicacionesPorIds = async (ids) => {
+    const ubicacionesPromises = ids.map(async (id) => {
+      const response = await fetch(`http://localhost:8080/fhir/Location/${id}`);
+      const data = await response.json();
+      return data;
+    });
+
+    const ubicacionesResultados = await Promise.all(ubicacionesPromises);
+    return ubicacionesResultados.filter(Boolean);
+  };
+
+  const handleEspecialidadChange = async (event) => {
     const especialidadSeleccionada = event.target.value;
     setSelectedEspecialidad(especialidadSeleccionada);
-    setSelectedUbicacion('');
-    setUbicacionInfo(null);
 
-    // Aquí puedes filtrar ubicaciones según la especialidad seleccionada
-    if (especialidadSeleccionada === 'Ginecologia') {
-      setUbicacionInfo({
-        ubicacion: 'Hospital Clínico',
-        detalles: 'Hospital Clínico especializado en Ginecología.'
-      });
-    } else {
-      setUbicacionInfo(null);
+    try {
+      const response = await fetch('http://localhost:8080/fhir/HealthcareService');
+      const textData = await response.text();
+      const serviciosSalud = JSON.parse(textData).entry || [];
+
+      const serviciosFiltrados = serviciosSalud.filter(
+        item => item.resource.specialty?.[0]?.coding?.[0]?.display === especialidadSeleccionada
+      );
+
+      const jsonString = JSON.stringify(serviciosFiltrados);
+      const idsUbicaciones = extraerIdsDeUbicaciones(jsonString);
+
+      const ubicacionesFinales = await obtenerUbicacionesPorIds(idsUbicaciones);
+      setUbicaciones(ubicacionesFinales);
+    } catch (error) {
+      console.error('Error fetching ubicaciones:', error);
+      setUbicaciones([]);
     }
   };
 
-  const handleUbicacionChange = (event) => {
-    const ubicacionSeleccionada = event.target.value;
-    setSelectedUbicacion(ubicacionSeleccionada);
-    setSelectedEspecialidad('');
-    setUbicacionInfo(null);
+  const handleUbicacionChange = async (event) => {
+    const ubicacionId = event.target.value;
 
-    // Aquí puedes filtrar especialidades según la ubicación seleccionada
-    if (ubicacionSeleccionada === 'Hospital Clínico') {
-      setUbicacionInfo({
-        especialidad: 'Ginecologia',
-        detalles: 'Ginecología en Hospital Clínico.'
-      });
-    } else {
-      setUbicacionInfo(null);
+    try {
+      const response = await fetch(`http://localhost:8080/fhir/Location/${ubicacionId}`);
+      const locationData = await response.json();
+
+      const geolocationExtension = locationData.extension?.find(ext => ext.url === "http://hl7.org/fhir/StructureDefinition/geolocation");
+      const latitude = geolocationExtension?.extension?.find(ext => ext.url === "latitude")?.valueDecimal;
+      const longitude = geolocationExtension?.extension?.find(ext => ext.url === "longitude")?.valueDecimal;
+
+      if (latitude && longitude) {
+        setSelectedLocation({ latitude, longitude, name: locationData.name });
+      }
+    } catch (error) {
+      console.error('Error fetching location data:', error);
     }
   };
 
   return (
-    <div>
-      <Box p={2} sx={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <Typography variant="body2" color="textSecondary">
-          Inicio &gt; Búsqueda de Especialidades &gt; Por Ubicación
-        </Typography>
-
-        <Grid container spacing={2} alignItems="center" style={{ marginTop: '16px' }}>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              label="Especialidad"
-              fullWidth
-              variant="outlined"
-              value={selectedEspecialidad}
-              onChange={handleEspecialidadChange}
-            >
+    <Box sx={{ width: "80%",p: 3 ,mx: "auto", justifyContent: "center" }}>
+      <Typography variant="h4" gutterBottom>Especialidades de Servicios de Salud</Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
+          <FormControl fullWidth>
+            <InputLabel>Seleccionar Especialidad</InputLabel>
+            <Select value={selectedEspecialidad} onChange={handleEspecialidadChange} label="Seleccionar Especialidad">
+              <MenuItem value="">
+                <em>--Seleccione--</em>
+              </MenuItem>
               {especialidades.map((especialidad, index) => (
-                <MenuItem key={index} value={especialidad}>
-                  {especialidad}
-                </MenuItem>
+                <MenuItem key={index} value={especialidad}>{especialidad}</MenuItem>
               ))}
-            </TextField>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              select
-              label="Ubicación"
-              fullWidth
-              variant="outlined"
-              value={selectedUbicacion}
-              onChange={handleUbicacionChange}
-            >
-              {ubicaciones.map((ubicacion, index) => (
-                <MenuItem key={index} value={ubicacion}>
-                  {ubicacion}
-                </MenuItem>
-              ))}
-            </TextField>
-          </Grid>
+            </Select>
+          </FormControl>
         </Grid>
+        <Grid item xs={12} md={6}>
+          <FormControl fullWidth>
+            <InputLabel>Seleccionar Ubicación</InputLabel>
+            <Select onChange={handleUbicacionChange} label="Seleccionar Ubicación">
+              <MenuItem value="">
+                <em>--Seleccione--</em>
+              </MenuItem>
+              {ubicaciones.map((ubicacion) => (
+                <MenuItem key={ubicacion.id} value={ubicacion.id}>{ubicacion.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
 
-        {ubicacionInfo && (
-          <Grid container spacing={2} style={{ marginTop: '16px' }}>
-            <Grid item xs={12}>
-              <Card>
-                <CardContent>
-                  {selectedEspecialidad && (
-                    <>
-                      <Typography variant="h6">
-                        Ubicación para {selectedEspecialidad}
-                      </Typography>
-                      <Typography variant="body1">
-                        {ubicacionInfo.ubicacion} - {ubicacionInfo.detalles}
-                      </Typography>
-                    </>
-                  )}
+      <Typography variant="h5" sx={{ mt: 4 }}>Especialidades por Ubicación:</Typography>
+      {especialidadesPorUbicacion.length > 0 ? (
+        <ul>
+          {especialidadesPorUbicacion.map((especialidad, index) => (
+            <li key={index}>{especialidad}</li>
+          ))}
+        </ul>
+      ) : (
+        <Typography>No hay especialidades para esta ubicación.</Typography>
+      )}
 
-                  {selectedUbicacion && (
-                    <>
-                      <Typography variant="h6">
-                        Especialidad en {selectedUbicacion}
-                      </Typography>
-                      <Typography variant="body1">
-                        {ubicacionInfo.especialidad} - {ubicacionInfo.detalles}
-                      </Typography>
-                    </>
-                  )}
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
-        )}
-      </Box>
-    </div>
+      {selectedLocation && (
+        <MapContainer center={[selectedLocation.latitude, selectedLocation.longitude]} zoom={15} style={{ height: '600px', width: '100%', marginTop: '20px' }}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker position={[selectedLocation.latitude, selectedLocation.longitude]}>
+            <Popup>{selectedLocation.name}</Popup>
+          </Marker>
+        </MapContainer>
+      )}
+    </Box>
   );
 };
 

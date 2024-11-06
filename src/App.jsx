@@ -4,6 +4,7 @@ import Header from './components/Header';
 import ContactView from './views/ContactView';
 import ProtocoloView from './views/ProtocoloView';
 import ContactAdminView from './views/ContactAdminView';
+import ConditionsView from './views/ConditionsView';
 import EspecialidadesView from './views/EspecialidadesView'; // Import the EspecialidadesView component
 
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/protocolos" element={<ProtocoloView />} />
         <Route path="/contactosAdmin" element={<ContactAdminView />} />
         <Route path="/Especialidades" element={<EspecialidadesView />} />
+        <Route path="/Conditions" element={<ConditionsView/>} />
         <Route path="/" element={<ProtocoloView />} /> {/* Página por defecto */}
       </Routes>
     </Router>
