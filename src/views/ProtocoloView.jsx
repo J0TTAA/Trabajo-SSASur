@@ -14,6 +14,7 @@ const ProtocoloView = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   // Configuración del icono del marcador
+  //Ver porque no todas las hubicaciones muestran un mapa
   delete L.Icon.Default.prototype._getIconUrl;
   L.Icon.Default.mergeOptions({
     iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
@@ -22,11 +23,22 @@ const ProtocoloView = () => {
   });
 
   useEffect(() => {
-    const fetchEspecialidades = () => {
-      const especialidades = ['Ginecología', 'Cardiología Adulto', 'Broncopulmonar Infantil', 'Otorrinolaringología'];
-      setEspecialidades(especialidades);
+    const fetchEspecialidades = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/fhir/HealthcareService');
+        const data = await response.json();
+        const servicios = data.entry || [];
+        
+        // Filtramos las especialidades únicas
+        const especialidadesUnicas = [...new Set(
+          servicios.map(item => item.resource.specialty?.[0]?.coding?.[0]?.display).filter(Boolean)
+        )];
+        setEspecialidades(especialidadesUnicas);
+      } catch (error) {
+        console.error('Error fetching especialidades:', error);
+      }
     };
-
+  
     const fetchUbicaciones = async () => {
       try {
         const response = await fetch('http://localhost:8080/fhir/Location');
@@ -40,10 +52,11 @@ const ProtocoloView = () => {
         console.error('Error fetching ubicaciones:', error);
       }
     };
-
+  
     fetchEspecialidades();
     fetchUbicaciones();
   }, []);
+  
 
   const fetchPatologias = async () => {
     try {
