@@ -3,11 +3,17 @@ import { Button, TextField, MenuItem, Grid, Box, Dialog, DialogActions, DialogCo
 import ContactList from '../components/ContactList';
 import axios from 'axios';
 
+/**
+ * Función para normalizar y eliminar acentos de una cadena de texto.
+ * @param {string} str - La cadena de texto a normalizar.
+ * @returns {string} - La cadena de texto normalizada y sin acentos.
+ */
 const normalizeString = (str) => {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
 };
 
 const Contactos = () => {
+  // Estado para almacenar la lista de practitioners (contactos)
   const [practitioners, setPractitioners] = useState([]);
   const [filteredPractitioners, setFilteredPractitioners] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,10 +45,12 @@ const Contactos = () => {
     birthDate: '',
     qualification: '',
     qualificationIssuer: '',
-    email: '' // Agregar aquí
+    email: '' 
   });
 
-  // Cargar los practitioners desde el servidor
+   /**
+   * Cargar los practitioners desde el servidor FHIR.
+   */
   useEffect(() => {
     const fetchPractitioners = async () => {
       try {
@@ -57,7 +65,9 @@ const Contactos = () => {
       }
     };
     fetchPractitioners();
-
+    /**
+     * Cargar los establecimientos desde el servidor FHIR.
+     */
     const fetchLocations = async () => {
       try {
         const response = await axios.get('http://localhost:8080/fhir/Location');
@@ -70,22 +80,24 @@ const Contactos = () => {
     fetchLocations();
   }, []);
 
-  // Aplicar filtros
+  /**
+   * Aplicar los filtros a la lista de practitioners.
+   */
   const applyFilters = () => {
     let filtered = practitioners;
-  
+  // Filtro por cargo
     if (cargo) {
       filtered = filtered.filter(practitioner => 
         practitioner.qualification?.some(q => q.code?.text?.toLowerCase().includes(cargo.toLowerCase()))
       );
     }
-  
+  // Filtro por especialidad
     if (especialidad) {
       filtered = filtered.filter(practitioner => 
         practitioner.qualification?.some(q => q.code?.text?.toLowerCase().includes(especialidad.toLowerCase()))
       );
     }
-  
+  // Filtro por establecimiento
     if (establecimiento) {
       filtered = filtered.filter(practitioner => 
         practitioner.address?.some(a => 
@@ -98,7 +110,9 @@ const Contactos = () => {
     setFilteredPractitioners(filtered);
   };
 
-  // Búsqueda
+    /**
+   * Realizar la búsqueda de contactos basados en el nombre.
+   */
   useEffect(() => {
     let filtered = practitioners;
 
@@ -112,7 +126,9 @@ const Contactos = () => {
     setFilteredPractitioners(filtered);
   }, [searchQuery, practitioners]);
 
-  // Resetear filtros
+  /**
+   * Resetear los filtros a sus valores iniciales.
+   */
   const resetFilters = () => {
     setCargo('');
     setEspecialidad('');
@@ -121,8 +137,13 @@ const Contactos = () => {
     setFilteredPractitioners(practitioners);
   };
 
-  // Manejo del modal de agregar/editar contacto
+/**
+   * Abrir el modal de agregar/editar contacto.
+   */
   const handleOpen = () => setOpen(true);
+  /**
+   * Cerrar el modal y resetear el estado.
+   */
   const handleClose = () => {
     setOpen(false);
     setIsEditing(false);
@@ -141,16 +162,23 @@ const Contactos = () => {
       birthDate: '',
       qualification: '',
       qualificationIssuer: '',
+      email: ''
     });
   };
 
-  // Actualizar estado del formulario de contacto
+    /**
+   * Manejar el cambio de valor en el formulario.
+   * @param {object} e - El evento de cambio.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewContact({ ...newContact, [name]: value });
   };
 
-  // Abrir el modal en modo de edición
+    /**
+   * Abrir el modal en modo de edición.
+   * @param {object} contact - El contacto que se desea editar.
+   */
 const handleEditClick = (contact) => {
   setIsEditing(true);
   setEditingContactId(contact.id);
@@ -172,7 +200,9 @@ const handleEditClick = (contact) => {
   handleOpen();
 };
 
-  // Agregar o editar contacto
+  /**
+   * Agregar o editar un contacto en el servidor FHIR.
+   */
   const handleSubmit = async () => {
     const practitionerData = {
       resourceType: 'Practitioner',
@@ -263,7 +293,10 @@ const handleEditClick = (contact) => {
   
   
 
-  // Eliminar contacto
+   /**
+   * Eliminar un contacto.
+   * @param {string} contactId - El ID del contacto que se desea eliminar.
+   */
   const handleDeleteContact = async (id) => {
     try {
       await axios.delete(`http://localhost:8080/fhir/Practitioner/${id}`);

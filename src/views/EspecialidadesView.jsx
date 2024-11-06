@@ -3,7 +3,10 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { Typography, Grid, Select, MenuItem, FormControl, InputLabel, Box } from '@mui/material';
-
+/**
+ * Componente para mostrar las especialidades de servicios de salud por ubicación
+ * usando un mapa interactivo con Leaflet.
+ */
 const EspecialidadesView = () => {
   const [especialidades, setEspecialidades] = useState([]);
   const [selectedEspecialidad, setSelectedEspecialidad] = useState('');
@@ -18,14 +21,17 @@ const EspecialidadesView = () => {
     iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
     shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
   });
-
+/**
+   * Hook para obtener las especialidades y ubicaciones desde el servidor FHIR
+   * y almacenarlas en el estado local.
+   */
   useEffect(() => {
     const fetchEspecialidades = async () => {
       try {
         const response = await fetch('http://localhost:8080/fhir/HealthcareService');
         const data = await response.json();
         const servicios = data.entry || [];
-
+// Extrae especialidades únicas de los servicios de salud
         const especialidadesUnicas = [...new Set(
           servicios.map(item => item.resource.specialty?.[0]?.coding?.[0]?.display).filter(Boolean)
         )];
@@ -40,7 +46,7 @@ const EspecialidadesView = () => {
         const response = await fetch('http://localhost:8080/fhir/Location');
         const data = await response.json();
         const ubicaciones = data.entry || [];
-
+  // Mapea las ubicaciones para obtener el id y nombre
         const ubicacionesMapeadas = ubicaciones.map(item => ({
           id: item.resource.id,
           name: item.resource.name || 'Nombre no disponible',
@@ -54,7 +60,11 @@ const EspecialidadesView = () => {
     fetchEspecialidades();
     fetchUbicaciones();
   }, []);
-
+ /**
+   * Extrae los IDs de ubicaciones de un JSON de servicios filtrados.
+   * @param {string} json - El JSON que contiene los servicios filtrados.
+   * @returns {Array<string>} - Un arreglo de IDs de ubicaciones.
+   */
   const extraerIdsDeUbicaciones = (json) => {
     const regex = /Location\/(\d+)/g;
     let match;
@@ -62,7 +72,11 @@ const EspecialidadesView = () => {
     while ((match = regex.exec(json)) !== null) ids.push(match[1]);
     return ids;
   };
-
+/**
+   * Obtiene los detalles de las ubicaciones mediante sus IDs.
+   * @param {Array<string>} ids - Arreglo de IDs de ubicaciones.
+   * @returns {Promise<Array>} - Una promesa con los detalles de las ubicaciones.
+   */
   const obtenerUbicacionesPorIds = async (ids) => {
     const ubicacionesPromises = ids.map(async (id) => {
       const response = await fetch(`http://localhost:8080/fhir/Location/${id}`);
@@ -73,7 +87,12 @@ const EspecialidadesView = () => {
     const ubicacionesResultados = await Promise.all(ubicacionesPromises);
     return ubicacionesResultados.filter(Boolean);
   };
-
+/**
+   * Maneja el cambio de especialidad seleccionada.
+   * Filtra los servicios de salud por la especialidad seleccionada
+   * y obtiene las ubicaciones asociadas.
+   * @param {Object} event - El evento de cambio de especialidad.
+   */
   const handleEspecialidadChange = async (event) => {
     const especialidadSeleccionada = event.target.value;
     setSelectedEspecialidad(especialidadSeleccionada);
@@ -82,14 +101,14 @@ const EspecialidadesView = () => {
       const response = await fetch('http://localhost:8080/fhir/HealthcareService');
       const textData = await response.text();
       const serviciosSalud = JSON.parse(textData).entry || [];
-
+ // Filtra los servicios por la especialidad seleccionada
       const serviciosFiltrados = serviciosSalud.filter(
         item => item.resource.specialty?.[0]?.coding?.[0]?.display === especialidadSeleccionada
       );
 
       const jsonString = JSON.stringify(serviciosFiltrados);
       const idsUbicaciones = extraerIdsDeUbicaciones(jsonString);
-
+ // Obtiene las ubicaciones asociadas a los servicios filtrados
       const ubicacionesFinales = await obtenerUbicacionesPorIds(idsUbicaciones);
       setUbicaciones(ubicacionesFinales);
     } catch (error) {
@@ -97,14 +116,18 @@ const EspecialidadesView = () => {
       setUbicaciones([]);
     }
   };
-
+  /**
+   * Maneja el cambio de ubicación seleccionada.
+   * Obtiene los detalles de la ubicación y la geolocalización asociada.
+   * @param {Object} event - El evento de cambio de ubicación.
+   */
   const handleUbicacionChange = async (event) => {
     const ubicacionId = event.target.value;
 
     try {
       const response = await fetch(`http://localhost:8080/fhir/Location/${ubicacionId}`);
       const locationData = await response.json();
-
+  // Busca la extensión de geolocalización para obtener la latitud y longitud
       const geolocationExtension = locationData.extension?.find(ext => ext.url === "http://hl7.org/fhir/StructureDefinition/geolocation");
       const latitude = geolocationExtension?.extension?.find(ext => ext.url === "latitude")?.valueDecimal;
       const longitude = geolocationExtension?.extension?.find(ext => ext.url === "longitude")?.valueDecimal;
