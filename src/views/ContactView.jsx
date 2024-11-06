@@ -38,7 +38,8 @@ const Contactos = () => {
     gender: '',
     birthDate: '',
     qualification: '',
-    qualificationIssuer: ''
+    qualificationIssuer: '',
+    email: '' // Agregar aquí
   });
 
   // Cargar los practitioners desde el servidor
@@ -139,7 +140,7 @@ const Contactos = () => {
       gender: '',
       birthDate: '',
       qualification: '',
-      qualificationIssuer: ''
+      qualificationIssuer: '',
     });
   };
 
@@ -150,25 +151,26 @@ const Contactos = () => {
   };
 
   // Abrir el modal en modo de edición
-  const handleEditClick = (contact) => {
-    setIsEditing(true);
-    setEditingContactId(contact.id);
-    setNewContact({
-      familyName: contact.name?.[0]?.family || '',
-      givenName: contact.name?.[0]?.given?.join(' ') || '',
-      identifier: contact.identifier?.[0]?.value || '',
-      phone: contact.telecom?.find(t => t.system === 'phone')?.value || '',
-      address: contact.address?.[0]?.line?.[0] || '',
-      city: contact.address?.[0]?.city || '',
-      postalCode: contact.address?.[0]?.postalCode || '',
-      country: contact.address?.[0]?.country || '',
-      gender: contact.gender || '',
-      birthDate: contact.birthDate || '',
-      qualification: contact.qualification?.[0]?.code?.text || '',
-      qualificationIssuer: contact.qualification?.[0]?.issuer?.display || ''
-    });
-    handleOpen();
-  };
+const handleEditClick = (contact) => {
+  setIsEditing(true);
+  setEditingContactId(contact.id);
+  setNewContact({
+    familyName: contact.name?.[0]?.family || '',
+    givenName: contact.name?.[0]?.given?.join(' ') || '',
+    identifier: contact.identifier?.[0]?.value || '',
+    phone: contact.telecom?.find(t => t.system === 'phone')?.value || '',
+    address: contact.address?.[0]?.line?.[0] || '',
+    city: contact.address?.[0]?.city || '',
+    postalCode: contact.address?.[0]?.postalCode || '',
+    country: contact.address?.[0]?.country || '',
+    gender: contact.gender || '',
+    birthDate: contact.birthDate || '',
+    qualification: contact.qualification?.[0]?.code?.text || '',
+    qualificationIssuer: contact.qualification?.[0]?.issuer?.display || '',
+    email: contact.telecom?.find(t => t.system === 'email')?.value || '' // Aquí agregamos el email
+  });
+  handleOpen();
+};
 
   // Agregar o editar contacto
   const handleSubmit = async () => {
@@ -183,7 +185,8 @@ const Contactos = () => {
         }
       ],
       telecom: [
-        { system: 'phone', value: newContact.phone }
+        { system: 'phone', value: newContact.phone },
+        { system: 'email', value: newContact.email } // Agregar email aquí
       ],
       address: [
         {
@@ -208,11 +211,11 @@ const Contactos = () => {
   
     try {
       if (isEditing && editingContactId) {
-        // Filtrar solo los campos con valores definidos
         const patchData = [
           newContact.familyName && { op: "replace", path: "/name/0/family", value: newContact.familyName },
           newContact.givenName && { op: "replace", path: "/name/0/given", value: newContact.givenName.split(' ') },
           newContact.phone && { op: "replace", path: "/telecom/0/value", value: newContact.phone },
+          newContact.email && { op: "replace", path: "/telecom/1/value", value: newContact.email }, // Email para editar
           newContact.address && { op: "replace", path: "/address/0/line/0", value: newContact.address },
           newContact.city && { op: "replace", path: "/address/0/city", value: newContact.city },
           newContact.postalCode && { op: "replace", path: "/address/0/postalCode", value: newContact.postalCode },
@@ -221,7 +224,7 @@ const Contactos = () => {
           newContact.birthDate && { op: "replace", path: "/birthDate", value: newContact.birthDate },
           newContact.qualification && { op: "replace", path: "/qualification/0/code/text", value: newContact.qualification },
           newContact.qualificationIssuer && { op: "replace", path: "/qualification/0/issuer/display", value: newContact.qualificationIssuer }
-        ].filter(Boolean); // Elimina los campos sin valor definido
+        ].filter(Boolean);
   
         const response = await axios.patch(
           `http://localhost:8080/fhir/Practitioner/${editingContactId}`,
@@ -238,7 +241,6 @@ const Contactos = () => {
           setFilteredPractitioners(updatedPractitioners);
         }
       } else {
-        // Para agregar un nuevo Practitioner usando POST
         const response = await axios.post(
           'http://localhost:8080/fhir/Practitioner',
           practitionerData,
@@ -300,6 +302,15 @@ const Contactos = () => {
             <Grid item xs={12}>
               <TextField label="Teléfono" name="phone" value={newContact.phone} onChange={handleInputChange} fullWidth />
             </Grid>
+            <Grid item xs={12}>
+        <TextField
+          label="Email"
+          name="email"
+          value={newContact.email}
+          onChange={handleInputChange}
+          fullWidth
+        />
+      </Grid>
             <Grid item xs={12}>
       <TextField
         select
