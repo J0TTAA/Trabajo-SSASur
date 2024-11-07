@@ -69,13 +69,7 @@ El componente `ContactCard` muestra los detalles de contacto de un profesional, 
 **Estado (State)**:  
 El componente no mantiene estado interno, ya que depende completamente de las propiedades pasadas desde el componente padre.
 
-**Ejemplo de Uso**:
-```jsx
-<ContactCard 
-  practitioner={practitionerData} 
-  onDelete={handleDelete} 
-  onEdit={handleEdit}
-/>
+
 
 ### ContactList
 
