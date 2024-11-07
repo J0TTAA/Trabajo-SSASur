@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "200161"
+    }
+  ],
+  "name": "CESFAM VILLA ALEGRE",
+  "active": true,
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Organization"
+}

@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121478"
+    }
+  ],
+  "name": "PSR RAPA MAщUCO",
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Location",
+  "status": "active"
+}

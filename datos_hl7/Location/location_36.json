@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121346"
+    }
+  ],
+  "name": "CESFAM LAUTARO",
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Location",
+  "status": "active"
+}

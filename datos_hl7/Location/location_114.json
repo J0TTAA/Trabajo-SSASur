@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121781"
+    }
+  ],
+  "name": "CECOSF 21 DE MAYO",
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Location",
+  "status": "active"
+}

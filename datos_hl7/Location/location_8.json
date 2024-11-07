@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121114"
+    }
+  ],
+  "name": "IMPERIAL HOSP.",
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Location",
+  "status": "active"
+}

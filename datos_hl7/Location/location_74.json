@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121522"
+    }
+  ],
+  "name": "POSTA DE SALUD RURAL QUIFO",
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Location",
+  "status": "active"
+}

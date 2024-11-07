@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121536"
+    }
+  ],
+  "name": "PSR QUEULE",
+  "active": true,
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Organization"
+}

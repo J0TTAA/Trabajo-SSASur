@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121323"
+    }
+  ],
+  "name": "C.S.R. PERQUENCO",
+  "active": true,
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Organization"
+}

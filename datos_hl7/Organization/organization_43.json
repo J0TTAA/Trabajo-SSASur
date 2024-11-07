@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121010"
+    }
+  ],
+  "name": "DIRECCION S.S.A.S.",
+  "active": true,
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Organization"
+}

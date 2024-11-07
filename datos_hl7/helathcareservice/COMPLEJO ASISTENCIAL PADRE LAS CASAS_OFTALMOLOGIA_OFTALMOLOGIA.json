@@ -1,0 +1,109 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "49988"
+  }, {
+    "system" : "http://minsal.cl/codigo-sigte",
+    "value" : "07-044"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|200717",
+    "display" : "COMPLEJO ASISTENCIAL PADRE LAS CASAS"
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "OFTALMOLOGIA"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "OFTALMOLOGIA"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "OFTALMOLOGIA"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121352"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121601"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121782"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121788"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|200383"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121785"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121780"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121307"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121326"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|200207"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|200183"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121347"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121350"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121336"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121311"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121308"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121309"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121342"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121306"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121305"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|200717"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121600"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121602"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121113"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121201"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121803"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121011"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|200244"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121109"
+  } ]
+}

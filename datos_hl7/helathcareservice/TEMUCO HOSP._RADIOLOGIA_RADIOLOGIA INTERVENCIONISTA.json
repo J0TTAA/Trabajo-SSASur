@@ -1,0 +1,97 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "52400"
+  }, {
+    "system" : "http://minsal.cl/codigo-sigte",
+    "value" : "07-024"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121109",
+    "display" : "TEMUCO HOSP."
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "TELEMEDICINA RADIOLOGIA INTERVENCIONISTA"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "RADIOLOGIA"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "RADIOLOGIA INTERVENCIONISTA"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|129100"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121115"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|200717"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121113"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|HOSP. OSORNO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|129103"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|129107"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|129108"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|HOSP. PUERTO MONTT"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|129104"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|HOSPITAL COYHAIQUE"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|HOSPITAL DE ANCUD"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|HOSPITAL DE CASTRO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|HOSPITAL DE QUELLON"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121114"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121110"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121120"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121117"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121116"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121109"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|122100"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|129106"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121121"
+  } ]
+}

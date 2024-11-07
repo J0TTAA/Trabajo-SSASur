@@ -1,0 +1,90 @@
+{
+  "resourceType" : "HealthcareService",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\tPsiquiatría\n\t\t</div>"
+  },
+  "identifier" : [ {
+    "system" : "http://ssasur.cl/jerarquias-ids",
+    "value" : "4297"
+  } ],
+  "active" : true,
+  "providedBy" : {
+    "reference" : "Organization?identifier=http://ssasur.cl/establecimientos-ids|121110",
+    "display" : "LAUTARO HOSP."
+  },
+  "category" : [ {
+    "coding" : [ {
+      "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+      "code" : "27",
+      "display" : "Specialist Medical"
+    } ],
+    "text" : "Médico Especialista"
+  } ],
+  "type" : [ {
+    "coding" : [ {
+      "system" : "http://ssasur.cl/policlinicos-ids",
+      "code" : "1",
+      "display" : "CIRUGIA MENOR AMBULATORIA"
+    } ]
+  } ],
+  "specialty" : [ {
+    "coding" : [ {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "MEDICINA GENERAL"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "408467006",
+      "display" : "MEDICINA GENERAL"
+    }, {
+      "system" : "http://minsal.cl/especialidades",
+      "code" : "07-117-0",
+      "display" : "Psiquiatría"
+    } ]
+  } ],
+  "appointmentRequired" : true,
+  "coverageArea" : [ {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121110"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121323"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121456"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121346"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121111"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121110"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121488"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121477"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121482"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121487"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121416"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121479"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|PSR PANGUECO"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121489"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121478"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121481"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121484"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121486"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121483"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121476"
+  }, {
+    "reference" : "Location?identifier=http://ssasur.cl/establecimientos-ids|121112"
+  } ]
+}

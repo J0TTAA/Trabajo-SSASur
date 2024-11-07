@@ -1,0 +1,14 @@
+{
+  "identifier": [
+    {
+      "system": "http://ssasur.cl/establecimientos-ids",
+      "value": "121484"
+    }
+  ],
+  "name": "PSR RUCATRARO",
+  "active": true,
+  "text": {
+    "status": "generated"
+  },
+  "resourceType": "Organization"
+}
