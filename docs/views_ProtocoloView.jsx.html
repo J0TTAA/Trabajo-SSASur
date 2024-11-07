@@ -1,4 +1,32 @@
-import React, { useState, useEffect } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: views/ProtocoloView.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: views/ProtocoloView.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import { Typography, Box, Grid, TextField, MenuItem, Card, CardContent, FormControl, InputLabel, Select } from '@mui/material';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -15,7 +43,7 @@ import L from 'leaflet';
  * @component
  * @example
  * return (
- *   <ProtocoloView />
+ *   &lt;ProtocoloView />
  * );
  */
 const ProtocoloView = () => {
@@ -64,7 +92,7 @@ const ProtocoloView = () => {
  /**
    * Extrae los IDs de las ubicaciones desde el JSON de servicios de salud.
    * @param {string} json - El JSON que contiene la información de los servicios de salud.
-   * @returns {Array<string>} Una lista de IDs de ubicaciones.
+   * @returns {Array&lt;string>} Una lista de IDs de ubicaciones.
    */
   const extraerIdsDeUbicaciones = (json) => {
     const regex = /Location\/(\d+)/g;
@@ -76,8 +104,8 @@ const ProtocoloView = () => {
 
  /**
    * Obtiene las ubicaciones a partir de los IDs proporcionados.
-   * @param {Array<string>} ids - Los IDs de las ubicaciones a obtener.
-   * @returns {Promise<Array<Object>>} Una promesa que resuelve con una lista de objetos de ubicación.
+   * @param {Array&lt;string>} ids - Los IDs de las ubicaciones a obtener.
+   * @returns {Promise&lt;Array&lt;Object>>} Una promesa que resuelve con una lista de objetos de ubicación.
    */
   const obtenerUbicacionesPorIds = async (ids) => {
     const ubicacionesPromises = ids.map(async (id) => {
@@ -86,7 +114,7 @@ const ProtocoloView = () => {
       const geolocationExtension = data.extension?.find(ext => ext.url === "http://hl7.org/fhir/StructureDefinition/geolocation");
       const latitude = geolocationExtension?.extension?.find(ext => ext.url === "latitude")?.valueDecimal;
       const longitude = geolocationExtension?.extension?.find(ext => ext.url === "longitude")?.valueDecimal;
-      return latitude && longitude ? { id: data.id, name: data.name || 'Nombre no disponible', latitude, longitude } : null;
+      return latitude &amp;&amp; longitude ? { id: data.id, name: data.name || 'Nombre no disponible', latitude, longitude } : null;
     });
     const ubicacionesResultados = await Promise.all(ubicacionesPromises);
     return ubicacionesResultados.filter(Boolean);
@@ -185,23 +213,23 @@ const ProtocoloView = () => {
   };
 
   return (
-    <Box p={2} sx={{ maxWidth: '1200px', margin: '0 auto' }}>
-      <Typography variant="h6">Criterios de Aceptación</Typography>
-      <Grid container spacing={2} alignItems="center" style={{ marginTop: '16px' }}>
-        <Grid item xs={12} sm={6}>
-          <FormControl fullWidth>
-            <InputLabel>Especialidad</InputLabel>
-            <Select value={selectedEspecialidad} onChange={handleEspecialidadChange}>
+    &lt;Box p={2} sx={{ maxWidth: '1200px', margin: '0 auto' }}>
+      &lt;Typography variant="h6">Criterios de Aceptación&lt;/Typography>
+      &lt;Grid container spacing={2} alignItems="center" style={{ marginTop: '16px' }}>
+        &lt;Grid item xs={12} sm={6}>
+          &lt;FormControl fullWidth>
+            &lt;InputLabel>Especialidad&lt;/InputLabel>
+            &lt;Select value={selectedEspecialidad} onChange={handleEspecialidadChange}>
               {especialidades.map((especialidad, index) => (
-                <MenuItem key={index} value={especialidad}>
+                &lt;MenuItem key={index} value={especialidad}>
                   {especialidad}
-                </MenuItem>
+                &lt;/MenuItem>
               ))}
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
+            &lt;/Select>
+          &lt;/FormControl>
+        &lt;/Grid>
+        &lt;Grid item xs={12} sm={6}>
+          &lt;TextField
             select
             label="Patología"
             fullWidth
@@ -210,46 +238,69 @@ const ProtocoloView = () => {
             disabled={!selectedEspecialidad}
           >
             {patologias.map((patologia, index) => (
-              <MenuItem key={index} value={patologia.id}>
+              &lt;MenuItem key={index} value={patologia.id}>
                 {patologia.text}
-              </MenuItem>
+              &lt;/MenuItem>
             ))}
-          </TextField>
-        </Grid>
-      </Grid>
+          &lt;/TextField>
+        &lt;/Grid>
+      &lt;/Grid>
 
-      <Grid container spacing={2} style={{ marginTop: '16px' }}>
-        <Grid item xs={12}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6">Detalles de la Patología</Typography>
-              <Typography variant="body1"><strong>Observaciones:</strong> {patologiaInfo ? patologiaInfo.observaciones : 'Seleccione una patología para ver detalles.'}</Typography>
-              <Typography variant="body1"><strong>Criterios:</strong> {patologiaInfo ? patologiaInfo.criterios : 'Seleccione una patología para ver detalles.'}</Typography>
-              <Typography variant="body1"><strong>Exámenes:</strong> {patologiaInfo ? patologiaInfo.examenes : 'Seleccione una patología para ver detalles.'}</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+      &lt;Grid container spacing={2} style={{ marginTop: '16px' }}>
+        &lt;Grid item xs={12}>
+          &lt;Card>
+            &lt;CardContent>
+              &lt;Typography variant="h6">Detalles de la Patología&lt;/Typography>
+              &lt;Typography variant="body1">&lt;strong>Observaciones:&lt;/strong> {patologiaInfo ? patologiaInfo.observaciones : 'Seleccione una patología para ver detalles.'}&lt;/Typography>
+              &lt;Typography variant="body1">&lt;strong>Criterios:&lt;/strong> {patologiaInfo ? patologiaInfo.criterios : 'Seleccione una patología para ver detalles.'}&lt;/Typography>
+              &lt;Typography variant="body1">&lt;strong>Exámenes:&lt;/strong> {patologiaInfo ? patologiaInfo.examenes : 'Seleccione una patología para ver detalles.'}&lt;/Typography>
+            &lt;/CardContent>
+          &lt;/Card>
+        &lt;/Grid>
+      &lt;/Grid>
 
-      {selectedPatologia && ubicaciones.length > 0 ? (
-        <Box mt={4}>
-          <MapContainer center={[ubicaciones[0].latitude, ubicaciones[0].longitude]} zoom={10} style={{ height: '400px', width: '100%' }}>
-            <TileLayer
+      {selectedPatologia &amp;&amp; ubicaciones.length > 0 ? (
+        &lt;Box mt={4}>
+          &lt;MapContainer center={[ubicaciones[0].latitude, ubicaciones[0].longitude]} zoom={10} style={{ height: '400px', width: '100%' }}>
+            &lt;TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&amp;copy; &lt;a href="https://www.openstreetmap.org/copyright">OpenStreetMap&lt;/a> contributors'
             />
             {ubicaciones.map((ubicacion) => (
-              <Marker key={ubicacion.id} position={[ubicacion.latitude, ubicacion.longitude]}>
-                <Popup>{ubicacion.name}</Popup>
-              </Marker>
+              &lt;Marker key={ubicacion.id} position={[ubicacion.latitude, ubicacion.longitude]}>
+                &lt;Popup>{ubicacion.name}&lt;/Popup>
+              &lt;/Marker>
             ))}
-          </MapContainer>
-        </Box>
+          &lt;/MapContainer>
+        &lt;/Box>
       ) : (
-        <Typography variant="body2" mt={2}>Seleccione una patología para ver las ubicaciones.</Typography>
+        &lt;Typography variant="body2" mt={2}>Seleccione una patología para ver las ubicaciones.&lt;/Typography>
       )}
-    </Box>
+    &lt;/Box>
   );
 };
 
 export default ProtocoloView;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ContactCard">ContactCard</a></li><li><a href="global.html#ContactList">ContactList</a></li><li><a href="global.html#EspecialidadesView">EspecialidadesView</a></li><li><a href="global.html#ProtocoloView">ProtocoloView</a></li><li><a href="global.html#normalizeString">normalizeString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 07 2024 01:11:16 GMT-0300 (hora de verano de Chile)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,4 +1,32 @@
-import React, { useEffect, useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: views/EspecialidadesView.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: views/EspecialidadesView.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -63,7 +91,7 @@ const EspecialidadesView = () => {
  /**
    * Extrae los IDs de ubicaciones de un JSON de servicios filtrados.
    * @param {string} json - El JSON que contiene los servicios filtrados.
-   * @returns {Array<string>} - Un arreglo de IDs de ubicaciones.
+   * @returns {Array&lt;string>} - Un arreglo de IDs de ubicaciones.
    */
   const extraerIdsDeUbicaciones = (json) => {
     const regex = /Location\/(\d+)/g;
@@ -74,8 +102,8 @@ const EspecialidadesView = () => {
   };
 /**
    * Obtiene los detalles de las ubicaciones mediante sus IDs.
-   * @param {Array<string>} ids - Arreglo de IDs de ubicaciones.
-   * @returns {Promise<Array>} - Una promesa con los detalles de las ubicaciones.
+   * @param {Array&lt;string>} ids - Arreglo de IDs de ubicaciones.
+   * @returns {Promise&lt;Array>} - Una promesa con los detalles de las ubicaciones.
    */
   const obtenerUbicacionesPorIds = async (ids) => {
     const ubicacionesPromises = ids.map(async (id) => {
@@ -132,7 +160,7 @@ const EspecialidadesView = () => {
       const latitude = geolocationExtension?.extension?.find(ext => ext.url === "latitude")?.valueDecimal;
       const longitude = geolocationExtension?.extension?.find(ext => ext.url === "longitude")?.valueDecimal;
 
-      if (latitude && longitude) {
+      if (latitude &amp;&amp; longitude) {
         setSelectedLocation({ latitude, longitude, name: locationData.name });
       }
     } catch (error) {
@@ -141,61 +169,84 @@ const EspecialidadesView = () => {
   };
 
   return (
-    <Box sx={{ width: "80%",p: 3 ,mx: "auto", justifyContent: "center" }}>
-      <Typography variant="h4" gutterBottom>Especialidades de Servicios de Salud</Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <FormControl fullWidth>
-            <InputLabel>Seleccionar Especialidad</InputLabel>
-            <Select value={selectedEspecialidad} onChange={handleEspecialidadChange} label="Seleccionar Especialidad">
-              <MenuItem value="">
-                <em>--Seleccione--</em>
-              </MenuItem>
+    &lt;Box sx={{ width: "80%",p: 3 ,mx: "auto", justifyContent: "center" }}>
+      &lt;Typography variant="h4" gutterBottom>Especialidades de Servicios de Salud&lt;/Typography>
+      &lt;Grid container spacing={3}>
+        &lt;Grid item xs={12} md={6}>
+          &lt;FormControl fullWidth>
+            &lt;InputLabel>Seleccionar Especialidad&lt;/InputLabel>
+            &lt;Select value={selectedEspecialidad} onChange={handleEspecialidadChange} label="Seleccionar Especialidad">
+              &lt;MenuItem value="">
+                &lt;em>--Seleccione--&lt;/em>
+              &lt;/MenuItem>
               {especialidades.map((especialidad, index) => (
-                <MenuItem key={index} value={especialidad}>{especialidad}</MenuItem>
+                &lt;MenuItem key={index} value={especialidad}>{especialidad}&lt;/MenuItem>
               ))}
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <FormControl fullWidth>
-            <InputLabel>Seleccionar Ubicación</InputLabel>
-            <Select onChange={handleUbicacionChange} label="Seleccionar Ubicación">
-              <MenuItem value="">
-                <em>--Seleccione--</em>
-              </MenuItem>
+            &lt;/Select>
+          &lt;/FormControl>
+        &lt;/Grid>
+        &lt;Grid item xs={12} md={6}>
+          &lt;FormControl fullWidth>
+            &lt;InputLabel>Seleccionar Ubicación&lt;/InputLabel>
+            &lt;Select onChange={handleUbicacionChange} label="Seleccionar Ubicación">
+              &lt;MenuItem value="">
+                &lt;em>--Seleccione--&lt;/em>
+              &lt;/MenuItem>
               {ubicaciones.map((ubicacion) => (
-                <MenuItem key={ubicacion.id} value={ubicacion.id}>{ubicacion.name}</MenuItem>
+                &lt;MenuItem key={ubicacion.id} value={ubicacion.id}>{ubicacion.name}&lt;/MenuItem>
               ))}
-            </Select>
-          </FormControl>
-        </Grid>
-      </Grid>
+            &lt;/Select>
+          &lt;/FormControl>
+        &lt;/Grid>
+      &lt;/Grid>
 
-      <Typography variant="h5" sx={{ mt: 4 }}>Especialidades por Ubicación:</Typography>
+      &lt;Typography variant="h5" sx={{ mt: 4 }}>Especialidades por Ubicación:&lt;/Typography>
       {especialidadesPorUbicacion.length > 0 ? (
-        <ul>
+        &lt;ul>
           {especialidadesPorUbicacion.map((especialidad, index) => (
-            <li key={index}>{especialidad}</li>
+            &lt;li key={index}>{especialidad}&lt;/li>
           ))}
-        </ul>
+        &lt;/ul>
       ) : (
-        <Typography>No hay especialidades para esta ubicación.</Typography>
+        &lt;Typography>No hay especialidades para esta ubicación.&lt;/Typography>
       )}
 
-      {selectedLocation && (
-        <MapContainer center={[selectedLocation.latitude, selectedLocation.longitude]} zoom={15} style={{ height: '600px', width: '100%', marginTop: '20px' }}>
-          <TileLayer
+      {selectedLocation &amp;&amp; (
+        &lt;MapContainer center={[selectedLocation.latitude, selectedLocation.longitude]} zoom={15} style={{ height: '600px', width: '100%', marginTop: '20px' }}>
+          &lt;TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution='&amp;copy; &lt;a href="https://www.openstreetmap.org/copyright">OpenStreetMap&lt;/a> contributors'
           />
-          <Marker position={[selectedLocation.latitude, selectedLocation.longitude]}>
-            <Popup>{selectedLocation.name}</Popup>
-          </Marker>
-        </MapContainer>
+          &lt;Marker position={[selectedLocation.latitude, selectedLocation.longitude]}>
+            &lt;Popup>{selectedLocation.name}&lt;/Popup>
+          &lt;/Marker>
+        &lt;/MapContainer>
       )}
-    </Box>
+    &lt;/Box>
   );
 };
 
 export default EspecialidadesView;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ContactCard">ContactCard</a></li><li><a href="global.html#ContactList">ContactList</a></li><li><a href="global.html#EspecialidadesView">EspecialidadesView</a></li><li><a href="global.html#ProtocoloView">ProtocoloView</a></li><li><a href="global.html#normalizeString">normalizeString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 07 2024 01:11:16 GMT-0300 (hora de verano de Chile)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

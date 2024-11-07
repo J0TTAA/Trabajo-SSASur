@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/ContactCard.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/ContactCard.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
+import { Card, CardContent, Typography, Button, Box } from '@mui/material';
+
+/**
+ * Componente ContactCard que muestra los detalles de contacto de un profesional,
+ * incluyendo nombre, teléfono, correo electrónico, dirección, género y calificación.
+ * También proporciona botones para editar y eliminar el contacto.
+ * 
+ * @component
+ * @param {Object} props - Propiedades del componente.
+ * @param {Object} props.practitioner - Datos del profesional a mostrar.
+ * @param {string} props.practitioner.id - Identificador único del profesional.
+ * @param {Array&lt;Object>} props.practitioner.name - Array que contiene los detalles del nombre (primer y apellido).
+ * @param {Array&lt;Object>} props.practitioner.telecom - Array que contiene los datos de contacto, como teléfono y correo electrónico.
+ * @param {Array&lt;Object>} props.practitioner.address - Array con la dirección del profesional (línea de dirección, ciudad, código postal, país).
+ * @param {string} props.practitioner.gender - Género del profesional.
+ * @param {Array&lt;Object>} props.practitioner.qualification - Array que contiene la calificación profesional, con detalles sobre el cargo.
+ * @param {function} props.onDelete - Función para eliminar el contacto, pasando el ID del profesional.
+ * @param {function} props.onEdit - Función para editar el contacto, pasando el objeto completo del profesional.
+ * 
+ * @returns {JSX.Element} - Componente que muestra la tarjeta del contacto.
+ */
+const ContactCard = ({ practitioner, onDelete, onEdit }) => {
+  const { id, name, telecom, address, qualification } = practitioner;
+
+  // Obtener el teléfono
+  const phone = telecom?.find(t => t.system === 'phone')?.value;
+  // Obtener el email
+  const email = telecom?.find(t => t.system === 'email')?.value;
+
+  // Manejadores de eventos para eliminar y editar
+  const handleDelete = () => {
+    onDelete(id);  // Usamos el id que tenemos en el objeto practitioner
+  };
+
+  const handleEdit = () => {
+    onEdit(practitioner);  // Pasamos el objeto completo para edición
+  };
+
+  return (
+    &lt;Card sx={{ minWidth: 275, marginBottom: 2 }}>
+      &lt;CardContent>
+        &lt;Typography variant="h6" component="div">
+          {`${name?.[0]?.given?.join(' ')} ${name?.[0]?.family}`}
+        &lt;/Typography>
+        &lt;Typography color="textSecondary">
+          Teléfono: {phone || 'N/A'}
+        &lt;/Typography>
+        &lt;Typography color="textSecondary">
+          Email: {email || 'N/A'}
+        &lt;/Typography>
+        &lt;Typography color="textSecondary">
+          Establecimiento: {address?.[0]?.line?.[0]}, {address?.[0]?.city}, {address?.[0]?.postalCode}, {address?.[0]?.country}
+        &lt;/Typography>
+        &lt;Typography color="textSecondary">
+          Género: {practitioner.gender || 'N/A'}
+        &lt;/Typography>
+        &lt;Typography color="textSecondary">
+          Cargo: {qualification?.[0]?.code?.text || 'N/A'}
+        &lt;/Typography>
+
+        &lt;Box sx={{ marginTop: 2 }}>
+          &lt;Button variant="outlined" color="primary" onClick={handleEdit} sx={{ marginRight: 1 }}>
+            Editar
+          &lt;/Button>
+          &lt;Button variant="outlined" color="secondary" onClick={handleDelete}>
+            Eliminar
+          &lt;/Button>
+        &lt;/Box>
+      &lt;/CardContent>
+    &lt;/Card>
+  );
+};
+
+// Validación de las propiedades del componente
+ContactCard.propTypes = {
+  practitioner: PropTypes.shape({
+    id: PropTypes.string.isRequired, 
+    name: PropTypes.arrayOf(PropTypes.shape({
+      family: PropTypes.string,
+      given: PropTypes.arrayOf(PropTypes.string)
+    })),
+    telecom: PropTypes.arrayOf(PropTypes.shape({
+      system: PropTypes.string,
+      value: PropTypes.string
+    })),
+    address: PropTypes.arrayOf(PropTypes.shape({
+      line: PropTypes.arrayOf(PropTypes.string),
+      city: PropTypes.string,
+      postalCode: PropTypes.string,
+      country: PropTypes.string
+    })),
+    gender: PropTypes.string,
+    qualification: PropTypes.arrayOf(PropTypes.shape({
+      code: PropTypes.shape({
+        text: PropTypes.string
+      })
+    }))
+  }).isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired    
+};
+
+export default ContactCard;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ContactCard">ContactCard</a></li><li><a href="global.html#ContactList">ContactList</a></li><li><a href="global.html#EspecialidadesView">EspecialidadesView</a></li><li><a href="global.html#ProtocoloView">ProtocoloView</a></li><li><a href="global.html#normalizeString">normalizeString</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Nov 07 2024 01:11:16 GMT-0300 (hora de verano de Chile)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
