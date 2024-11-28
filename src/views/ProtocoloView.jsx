@@ -218,18 +218,35 @@ const ProtocoloView = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} style={{ marginTop: '16px' }}>
-        <Grid item xs={12}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6">Detalles de la Patología</Typography>
-              <Typography variant="body1"><strong>Observaciones:</strong> {patologiaInfo ? patologiaInfo.observaciones : 'Seleccione una patología para ver detalles.'}</Typography>
-              <Typography variant="body1"><strong>Criterios:</strong> {patologiaInfo ? patologiaInfo.criterios : 'Seleccione una patología para ver detalles.'}</Typography>
-              <Typography variant="body1"><strong>Exámenes:</strong> {patologiaInfo ? patologiaInfo.examenes : 'Seleccione una patología para ver detalles.'}</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+      <Grid container spacing={2} style={{ marginTop: '16px' }}> 
+        {/* Dos bloques en la parte superior */} 
+        <Grid item xs={12} sm={6}> 
+          <Card> <CardContent> <Typography variant="h6">Criterios de Derivación</Typography> 
+          <Typography variant="body1">{patologiaInfo ? patologiaInfo.criterios : 'Seleccione una patología para ver detalles.'}</Typography> 
+          </CardContent> </Card> </Grid> <Grid item xs={12} sm={6}> <Card> <CardContent> <Typography variant="h6">Exámenes Requeridos</Typography> 
+          <Typography variant="body1">{patologiaInfo ? patologiaInfo.examenes : 'Seleccione una patología para ver detalles.'}</Typography> </CardContent> </Card> </Grid>
+           {/* Bloque único grande abajo */} 
+           <Grid item xs={12}> <Card> <CardContent> <Typography variant="h6">Observaciones </Typography> <Typography variant="body1">{patologiaInfo ? patologiaInfo.observaciones : 'Seleccione una patología para ver detalles.'}</Typography> </CardContent> </Card> </Grid> </Grid>
+
+
+           {selectedEspecialidad && (
+  <Box my={2} sx={{ display: 'flex', justifyContent: 'flex-start', width: '100%' }}>
+    <FormControl fullWidth sx={{ maxWidth: 300 }}>
+      <InputLabel htmlFor="especialidad-seleccionada">Especialidad Seleccionada</InputLabel>
+      <Select
+        value={selectedEspecialidad}
+        inputProps={{
+          readOnly: true,
+          id: 'especialidad-seleccionada',
+        }}
+      >
+        <MenuItem value={selectedEspecialidad}>{selectedEspecialidad}</MenuItem>
+      </Select>
+    </FormControl>
+  </Box>
+)}
+
+
 
       {selectedPatologia && ubicaciones.length > 0 ? (
         <Box mt={4}>
@@ -251,5 +268,10 @@ const ProtocoloView = () => {
     </Box>
   );
 };
+
+
+
+
+
 
 export default ProtocoloView;

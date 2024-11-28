@@ -62,9 +62,10 @@ const Contactos = () => {
         const practitionersData = response.data.entry.map(entry => entry.resource);
         setPractitioners(practitionersData);
         setFilteredPractitioners(practitionersData);
-        setLoading(false);
       } catch (error) {
+        console.error('Error al cargar los practitioners:', error);
         setError('Error al cargar los datos');
+      } finally {
         setLoading(false);
       }
     };
@@ -301,10 +302,10 @@ const handleEditClick = (contact) => {
    * Eliminar un contacto.
    * @param {string} contactId - El ID del contacto que se desea eliminar.
    */
-  const handleDeleteContact = async (id) => {
+   const handleDeleteContact = async (id) => {
     try {
       await axios.delete(`http://localhost:8080/fhir/Practitioner/${id}`);
-      const updatedPractitioners = practitioners.filter(p => p.id !== id);
+      const updatedPractitioners = practitioners.filter((p) => p.id !== id);
       setPractitioners(updatedPractitioners);
       setFilteredPractitioners(updatedPractitioners);
     } catch (error) {
@@ -328,26 +329,60 @@ const handleEditClick = (contact) => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{isEditing ? 'Editar Contacto' : 'Agregar Nuevo Contacto'}</DialogTitle>
         <DialogContent>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField label="Apellido" name="familyName" value={newContact.familyName} onChange={handleInputChange} fullWidth />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField label="Nombres" name="givenName" value={newContact.givenName} onChange={handleInputChange} fullWidth />
-            </Grid>
-           
-            <Grid item xs={12}>
-              <TextField label="Teléfono" name="phone" value={newContact.phone} onChange={handleInputChange} fullWidth />
-            </Grid>
-            <Grid item xs={12}>
-        <TextField
-          label="Email"
-          name="email"
-          value={newContact.email}
-          onChange={handleInputChange}
-          fullWidth
-        />
-      </Grid>
+        <Grid container spacing={2}>
+    <Grid item xs={12}>
+      <TextField
+        label="Apellido"
+        name="familyName"
+        value={newContact.familyName}
+        onChange={handleInputChange}
+        fullWidth
+        required
+        error={!newContact.familyName.trim()}
+        helperText={!newContact.familyName.trim() ? 'Este campo es obligatorio' : ''}
+      />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField
+        label="Nombre"
+        name="givenName"
+        value={newContact.givenName}
+        onChange={handleInputChange}
+        fullWidth
+        required
+        error={!newContact.givenName.trim()}
+        helperText={!newContact.givenName.trim() ? 'Este campo es obligatorio' : ''}
+      />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField
+        label="Correo Electrónico"
+        name="email"
+        value={newContact.email}
+        onChange={handleInputChange}
+        fullWidth
+        required
+        type="email"
+        error={!/\S+@\S+\.\S+/.test(newContact.email)}
+        helperText={
+          !/\S+@\S+\.\S+/.test(newContact.email) ? 'Ingrese un correo electrónico válido' : ''
+        }
+      />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField
+        label="Teléfono"
+        name="phone"
+        value={newContact.phone}
+        onChange={handleInputChange}
+        fullWidth
+        required
+        error={!/^\d{7,10}$/.test(newContact.phone)}
+        helperText={
+          !/^\d{7,10}$/.test(newContact.phone) ? 'Ingrese un teléfono válido (7-10 dígitos)' : ''
+        }
+      />
+    </Grid>
             <Grid item xs={12}>
       <TextField
         select
